@@ -4,9 +4,14 @@
         Blog
     </a>
 
-    <a title="{{ $page->siteName }} About" href="/about"
-        class="ml-6 text-gray-700 hover:text-blue-600 {{ $page->isActive('/about') ? 'active text-blue-600' : '' }}">
-        About
+    <a title="{{ $page->siteName }} Speaking" href="/speaking"
+        class="ml-6 text-gray-700 hover:text-blue-600 {{ $page->isActive('/speaking') ? 'active text-blue-600' : '' }}">
+        Speaking
+    </a>
+
+    <a title="{{ $page->siteName }} Project" href="/project"
+       class="ml-6 text-gray-700 hover:text-blue-600 {{ $page->isActive('/project') ? 'active text-blue-600' : '' }}">
+        Project
     </a>
 
     <a title="{{ $page->siteName }} Contact" href="/contact"
