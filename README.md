@@ -1,19 +1,20 @@
-# About
+# blog
 
-  Hi there, I'm Morshadun Nur—a full-stack web application developer from Dhaka, Bangladesh, with over 3 years professional experience.
-  [Contact Me!](https://morshadunnur.me)
-
-## Building Your Site
-
-Now that you’ve edited your configuration variables and know how to customize your styles and content, let’s build the site.
+## Build Setup
 
 ```bash
-# build static files with Jigsaw
-./vendor/bin/jigsaw build
+# install dependencies
+$ npm install
 
-# compile assets with Laravel Mix
-# options: dev, staging, production
-npm run dev
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
