@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts and sort by publish date (newest first)
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+---
+
+<Layout title="Blog | Morshad Unnur - Shopify Developer" description="Articles and insights on Shopify development, e-commerce, and online store optimization.">
+  <div class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Blog</h1>
+      <p class="text-xl">Articles and insights on Shopify development, e-commerce, and online store optimization.</p>
+    </div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => (
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <a href={`/blog/${post.slug}`}>
+            <img src={post.data.image} alt={post.data.title} class="w-full h-48 object-cover" />
+          </a>
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              <a href={`/blog/${post.slug}`} class="text-gray-900 hover:text-primary">
+                {post.data.title}
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">{post.data.description}</p>
+            <div class="flex justify-between items-center">
+              <time datetime={post.data.publishDate.toISOString()} class="text-sm text-gray-500">
+                {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <a href={`/blog/${post.slug}`} class="text-primary hover:text-secondary font-medium">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
