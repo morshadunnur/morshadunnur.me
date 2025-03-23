@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import profileImage from '../assets/images/profile.png';
 ---
 
 <Layout title="About | Morshadun Nur - Shopify Developer" description="Learn about Morshadun Nur's experience, skills, and approach to Shopify development and e-commerce solutions.">
@@ -15,7 +17,8 @@ import Layout from '../layouts/Layout.astro';
       <!-- Profile Image and Quick Info -->
       <div class="lg:col-span-1">
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <img src="/images/profile.png" alt="Morshadun Nur" class="w-full h-auto rounded-lg mb-6" />
+          <!-- <img src="/images/profile.png" alt="Morshadun Nur" class="w-full h-auto rounded-lg mb-6" /> -->
+          <Image src={profileImage} alt="Morshadun Nur" class="w-full h-auto rounded-lg mb-6" loading="eager" />
           
           <h2 class="text-xl font-bold text-gray-900 mb-4">Shopify Developer | Full-Stack Developer | Laravel Expert</h2>
           

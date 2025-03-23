@@ -79,7 +79,7 @@ const services = [
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Services Overview -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-on-scroll">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">How I Can Help Your Business</h2>
       <p class="max-w-3xl mx-auto text-lg text-gray-600">
         I offer a range of specialized Shopify development services designed to help your e-commerce business succeed. From custom store development to performance optimization, I provide end-to-end solutions tailored to your specific needs.
@@ -89,7 +89,7 @@ const services = [
     <!-- Service Cards -->
     <div class="space-y-24">
       {services.map((service, index) => (
-        <div id={service.id} class="scroll-mt-24">
+        <div id={service.id} class="scroll-mt-24 animate-on-scroll">
           <div class={`flex flex-col lg:flex-row gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
             <div class="lg:w-1/2">
               <div class="bg-white p-8 rounded-lg shadow-md h-full">
@@ -144,7 +144,7 @@ const services = [
     </div>
     
     <!-- Process Section -->
-    <div class="mt-24">
+    <div class="mt-24 animate-on-scroll">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">My Development Process</h2>
         <p class="max-w-3xl mx-auto text-lg text-gray-600">
@@ -152,7 +152,7 @@ const services = [
         </p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-on-scroll">
         <div class="bg-white p-6 rounded-lg shadow-md relative">
           <div class="absolute -top-4 -left-4 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold">1</div>
           <h3 class="text-xl font-bold text-gray-900 mb-3 mt-2">Discovery</h3>
@@ -189,7 +189,7 @@ const services = [
     
     <!-- CTA Section -->
     <div class="mt-24 bg-gradient-to-r from-primary to-secondary rounded-lg shadow-xl overflow-hidden">
-      <div class="px-6 py-12 md:p-12 text-center md:text-left md:flex md:items-center md:justify-between">
+      <div class="px-6 py-12 md:p-12 text-center md:text-left md:flex md:items-center md:justify-between animate-on-scroll">
         <div class="md:flex-1">
           <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to transform your Shopify store?</h2>
           <p class="text-white text-opacity-90 mb-6 md:mb-0 max-w-2xl">
@@ -211,7 +211,7 @@ const services = [
   <!-- FAQ Section -->
     <!-- FAQ Section -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-gray-50 rounded-lg mt-24">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 animate-on-scroll">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
       <p class="max-w-3xl mx-auto text-lg text-gray-600">
         Common questions about my Shopify development services
@@ -219,9 +219,9 @@ const services = [
     </div>
     
     <div class="max-w-3xl mx-auto">
-      <div class="space-y-4">
+      <div class="space-y-4 animate-on-scroll">
         <!-- FAQ Item 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="border border-gray-200 rounded-lg overflow-hidden animate-on-scroll">
           <button class="faq-toggle w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors">
             <h3 class="text-lg font-semibold text-gray-900">How long does it take to develop a Shopify store?</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -236,7 +236,7 @@ const services = [
         </div>
         
         <!-- FAQ Item 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="border border-gray-200 rounded-lg overflow-hidden animate-on-scroll">
           <button class="faq-toggle w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors">
             <h3 class="text-lg font-semibold text-gray-900">Do you work with existing Shopify stores or only new ones?</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -251,7 +251,7 @@ const services = [
         </div>
         
         <!-- FAQ Item 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="border border-gray-200 rounded-lg overflow-hidden animate-on-scroll">
           <button class="faq-toggle w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors">
             <h3 class="text-lg font-semibold text-gray-900">What information do you need to get started?</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -266,7 +266,7 @@ const services = [
         </div>
         
         <!-- FAQ Item 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="border border-gray-200 rounded-lg overflow-hidden animate-on-scroll">
           <button class="faq-toggle w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors">
             <h3 class="text-lg font-semibold text-gray-900">Do you provide ongoing support after the store is launched?</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -281,7 +281,7 @@ const services = [
         </div>
         
         <!-- FAQ Item 5 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="border border-gray-200 rounded-lg overflow-hidden animate-on-scroll">
           <button class="faq-toggle w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors">
             <h3 class="text-lg font-semibold text-gray-900">How do you handle revisions during the development process?</h3>
             <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -311,7 +311,7 @@ const services = [
   <!-- Client Testimonials Section -->
 <section class="py-16 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 animate-on-scroll">
       <h2 class="text-3xl font-bold text-gray-900">What Clients Say</h2>
       <p class="mt-4 text-xl text-gray-600">Don't just take my word for it. Here's what clients have to say about working with me.</p>
     </div>
@@ -319,9 +319,9 @@ const services = [
     <!-- Reviews Carousel -->
     <div class="reviews-carousel relative">
       <div class="overflow-hidden" id="reviews-container">
-        <div class="flex transition-transform duration-300 ease-in-out" id="reviews-slider">
+        <div class="flex transition-transform duration-300 ease-in-out animate-on-scroll" id="reviews-slider">
           <!-- Review 1 -->
-          <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+          <div class="w-full md:w-1/3 flex-shrink-0 px-4 ">
             <div class="bg-white p-6 rounded-lg h-full border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div class="flex items-center mb-4">
                 <div class="flex text-yellow-400 mr-2">
@@ -343,14 +343,14 @@ const services = [
                 </div>
                 <span class="text-sm text-gray-500">5.0</span>
               </div>
-              <p class="text-gray-700 mb-4">"Morshadun is an exceptional Shopify developer. He understood our requirements perfectly and delivered a custom theme that exceeded our expectations. His attention to detail and problem-solving skills are impressive."</p>
+              <p class="text-gray-700 mb-4">"Nur, is a seasoned developer with lot of experience. He help with few pressing needs for a complex App (vue.js / PHP-Laravel), which was not well maintained and managed. Resolving bugs in a fairly quick time. Now the App is more stable."</p>
               <div class="flex items-center">
                 <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <span class="text-gray-700 font-medium">JM</span>
+                  <span class="text-gray-700 font-medium">MQ</span>
                 </div>
                 <div>
-                  <h4 class="font-medium text-gray-900">James Miller</h4>
-                  <p class="text-sm text-gray-500">E-commerce Store Owner</p>
+                  <h4 class="font-medium text-gray-900">Mubeen Qawi</h4>
+                  <p class="text-sm text-gray-500">Founder, Appstack LLC</p>
                 </div>
               </div>
             </div>
@@ -368,14 +368,16 @@ const services = [
                 </div>
                 <span class="text-sm text-gray-500">5.0</span>
               </div>
-              <p class="text-gray-700 mb-4">"Working with Morshadun was a pleasure. He helped us migrate our store to Shopify and customize it to match our brand perfectly. He was responsive, professional, and delivered on time. Highly recommended!"</p>
+              <p class="text-gray-700 mb-4">"Working with Morshadun was a pleasure. He developed a custom app for our chat support SAAS, Shopify integration for Support Ai. Highly recommended!"</p>
               <div class="flex items-center">
                 <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <span class="text-gray-700 font-medium">SJ</span>
+                  <span class="text-gray-700 font-medium">GF</span>
                 </div>
                 <div>
-                  <h4 class="font-medium text-gray-900">Sarah Johnson</h4>
-                  <p class="text-sm text-gray-500">Fashion Boutique Owner</p>
+                  <h4 class="font-medium text-gray-900">Guilhem Fabre
+
+                  </h4>
+                  <p class="text-sm text-gray-500">Support Ai</p>
                 </div>
               </div>
             </div>
@@ -393,14 +395,14 @@ const services = [
                 </div>
                 <span class="text-sm text-gray-500">5.0</span>
               </div>
-              <p class="text-gray-700 mb-4">"Morshadun's expertise in Shopify development is outstanding. He helped us implement complex customizations that other developers said weren't possible. His communication was clear and he was always available to answer questions."</p>
+              <p class="text-gray-700 mb-4">"Morshadun has delivered exceptional work for our project in the agreed timeline. I recommend him for your next Laravel project"</p>
               <div class="flex items-center">
                 <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <span class="text-gray-700 font-medium">DT</span>
+                  <span class="text-gray-700 font-medium">HA</span>
                 </div>
                 <div>
-                  <h4 class="font-medium text-gray-900">David Thompson</h4>
-                  <p class="text-sm text-gray-500">Digital Marketing Agency</p>
+                  <h4 class="font-medium text-gray-900">Husham Alrumhie</h4>
+                  <p class="text-sm text-gray-500">Jordan, Upwork</p>
                 </div>
               </div>
             </div>
@@ -418,14 +420,14 @@ const services = [
                 </div>
                 <span class="text-sm text-gray-500">5.0</span>
               </div>
-              <p class="text-gray-700 mb-4">"We hired Morshadun to optimize our Shopify store's performance, and the results were immediate. Page load times decreased by 40%, and our conversion rate improved significantly. His technical knowledge is impressive."</p>
+              <p class="text-gray-700 mb-4">"Excellent developer. Highly recommended. Very reliable and gets the work done on time. Will hire again when he's not too busy"</p>
               <div class="flex items-center">
                 <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <span class="text-gray-700 font-medium">AL</span>
+                  <span class="text-gray-700 font-medium">US</span>
                 </div>
                 <div>
-                  <h4 class="font-medium text-gray-900">Amanda Lee</h4>
-                  <p class="text-sm text-gray-500">Home Goods Retailer</p>
+                  <h4 class="font-medium text-gray-900">USA</h4>
+                  <p class="text-sm text-gray-500">Upwork, Brother Org</p>
                 </div>
               </div>
             </div>
@@ -462,7 +464,7 @@ const services = [
   
   <!-- Final CTA Section -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mt-16 bg-gray-50 rounded-lg">
-    <div class="text-center">
+    <div class="text-center animate-on-scroll">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Elevate Your Shopify Store?</h2>
       <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-8">
         Let's work together to create a Shopify store that not only looks great but also drives results for your business.
@@ -478,6 +480,8 @@ const services = [
     </div>
   </div>
 </Layout>
+
+// ... existing code ...
 
 <script>
   // Wait for the DOM to be fully loaded
@@ -527,8 +531,8 @@ const services = [
         }
       };
       
-            // Event listeners for next and previous buttons
-            nextButton.addEventListener('click', () => {
+      // Event listeners for next and previous buttons
+      nextButton.addEventListener('click', () => {
         if (window.innerWidth < 768) {
           // On mobile, move one slide at a time
           currentSlide = (currentSlide + 1) % slideCount;
@@ -556,5 +560,85 @@ const services = [
       // Initialize slider
       updateSlider();
     }
+
+    // Section scroll animations
+    const animateSections = () => {
+      // Select all sections to animate
+      const sections = document.querySelectorAll('.animate-on-scroll');
+      
+      // Create the Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // Add the animation class when the section is visible
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-visible');
+            // Optional: Stop observing after animation is applied
+            // observer.unobserve(entry.target);
+          } else {
+            // Optional: Remove the class when section is not visible
+            // Uncomment the line below if you want elements to animate again when they come back into view
+            // entry.target.classList.remove('animate-visible');
+          }
+        });
+      }, {
+        root: null, // Use the viewport as the root
+        threshold: 0.1, // Trigger when at least 10% of the element is visible
+        rootMargin: '0px 0px -100px 0px' // Adjust the trigger point (negative value means "before it's fully visible")
+      });
+      
+      // Start observing each section
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    };
+    
+    // Initialize animations
+    animateSections();
   });
 </script>
+
+<style>
+  /* Base styles for animated sections */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Styles applied when section becomes visible */
+  .animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Different animation directions */
+  .animate-from-left {
+    transform: translateX(-50px);
+  }
+  
+  .animate-from-right {
+    transform: translateX(50px);
+  }
+  
+  .animate-from-left.animate-visible,
+  .animate-from-right.animate-visible {
+    transform: translateX(0);
+  }
+  
+  /* Different animation delays */
+  .delay-100 {
+    transition-delay: 0.1s;
+  }
+  
+  .delay-200 {
+    transition-delay: 0.2s;
+  }
+  
+  .delay-300 {
+    transition-delay: 0.3s;
+  }
+  
+  .delay-400 {
+    transition-delay: 0.4s;
+  }
+</style>
