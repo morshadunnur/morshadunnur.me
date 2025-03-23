@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3f4f6" />
+      <stop offset="100%" stop-color="#e5e7eb" />
+    </linearGradient>
+    <linearGradient id="shopifyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#95BF47" />
+      <stop offset="100%" stop-color="#5E8E3E" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#0001" />
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect x="50" y="50" width="700" height="500" rx="20" fill="url(#bgGradient)" filter="url(#shadow)" />
+  
+  <!-- Code Window -->
+  <rect x="100" y="100" width="320" height="400" rx="10" fill="#1e293b" filter="url(#shadow)" />
+  <rect x="100" y="100" width="320" height="30" rx="10 10 0 0" fill="#334155" />
+  <circle cx="120" cy="115" r="5" fill="#ef4444" />
+  <circle cx="140" cy="115" r="5" fill="#f59e0b" />
+  <circle cx="160" cy="115" r="5" fill="#10b981" />
+  
+  <!-- Code Lines -->
+  <text x="120" y="160" font-family="monospace" font-size="12" fill="#8b5cf6">import</text>
+  <text x="170" y="160" font-family="monospace" font-size="12" fill="#e5e7eb">ShopifyAPI</text>
+  <text x="250" y="160" font-family="monospace" font-size="12" fill="#8b5cf6">from</text>
+  <text x="290" y="160" font-family="monospace" font-size="12" fill="#22c55e">'shopify'</text>
+  
+  <text x="120" y="190" font-family="monospace" font-size="12" fill="#8b5cf6">class</text>
+  <text x="160" y="190" font-family="monospace" font-size="12" fill="#60a5fa">CustomShopifyStore</text>
+  <text x="300" y="190" font-family="monospace" font-size="12" fill="#e5e7eb">{</text>
+  
+  <text x="140" y="220" font-family="monospace" font-size="12" fill="#8b5cf6">constructor</text>
+  <text x="220" y="220" font-family="monospace" font-size="12" fill="#e5e7eb">() {</text>
+  <text x="160" y="250" font-family="monospace" font-size="12" fill="#8b5cf6">this</text>
+  <text x="190" y="250" font-family="monospace" font-size="12" fill="#e5e7eb">.api = new ShopifyAPI();</text>
+  <text x="160" y="280" font-family="monospace" font-size="12" fill="#8b5cf6">this</text>
+  <text x="190" y="280" font-family="monospace" font-size="12" fill="#e5e7eb">.theme = </text>
+  <text x="260" y="280" font-family="monospace" font-size="12" fill="#22c55e">'custom'</text>
+  <text x="310" y="280" font-family="monospace" font-size="12" fill="#e5e7eb">;</text>
+  <text x="140" y="310" font-family="monospace" font-size="12" fill="#e5e7eb">}</text>
+  
+  <text x="140" y="340" font-family="monospace" font-size="12" fill="#f472b6">optimizeStore</text>
+  <text x="240" y="340" font-family="monospace" font-size="12" fill="#e5e7eb">() {</text>
+  <text x="160" y="370" font-family="monospace" font-size="12" fill="#e5e7eb">// Performance optimization</text>
+  <text x="140" y="400" font-family="monospace" font-size="12" fill="#e5e7eb">}</text>
+  
+  <text x="120" y="430" font-family="monospace" font-size="12" fill="#e5e7eb">}</text>
+  
+  <!-- Shopify Store Visualization -->
+  <rect x="450" y="100" width="250" height="400" rx="10" fill="white" filter="url(#shadow)" />
+  
+  <!-- Store Header -->
+  <rect x="450" y="100" width="250" height="60" rx="10 10 0 0" fill="#f9fafb" />
+  <rect x="470" y="120" width="120" height="20" rx="4" fill="url(#shopifyGradient)" />
+  <circle cx="670" cy="130" r="10" fill="#f3f4f6" stroke="#d1d5db" stroke-width="2" />
+  <rect x="470" y="170" width="210" height="40" rx="4" fill="#f3f4f6" />
+  
+  <!-- Product Grid -->
+  <rect x="470" y="230" width="95" height="95" rx="4" fill="#f3f4f6" />
+  <rect x="585" y="230" width="95" height="95" rx="4" fill="#f3f4f6" />
+  <rect x="470" y="345" width="95" height="95" rx="4" fill="#f3f4f6" />
+  <rect x="585" y="345" width="95" height="95" rx="4" fill="#f3f4f6" />
+  
+  <!-- Connecting Elements -->
+  <path d="M420 200 C 430 200, 440 200, 450 200" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5" />
+  <path d="M420 300 C 430 300, 440 300, 450 300" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5" />
+  <path d="M420 400 C 430 400, 440 400, 450 400" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Shopify Logo -->
+  <g transform="translate(560, 480) scale(0.5)">
+    <path d="M35.4,19.6c-0.2-1.9-2.2-2.6-3.9-2.8c-1.7-0.2-4.1-0.2-5.8-0.6C24.9,16,24.5,16,24,16c-0.4,0-0.7,0-1.1,0c-0.3-0.4-0.4-0.9-0.7-1.3c-1-1.3-2.3-2-4-2c-0.1,0-0.2,0-0.4,0c-0.6,0.1-1.2,0.3-1.7,0.5c-2.1-6.2-3.7-10.9-3.7-10.9s-0.1-0.3-0.3-0.4c0,0-0.1,0-0.1,0c-0.3,0-0.5,0.2-0.6,0.4c0,0-5,3.9-5.6,12.1c-1.3,0.4-2.6,0.8-3.8,1.2c-1.2,0.4-1.2,0.5-1.3,1.7C0.6,18,0,37.9,0,37.9l27.8,5.2l15-3.2C42.8,39.9,35.4,19.6,35.4,19.6z" fill="url(#shopifyGradient)"/>
+    <path d="M24,16c-0.4,0-0.7,0-1.1,0c-0.3-0.4-0.4-0.9-0.7-1.3c0.2,0,0.4,0,0.6,0C23.2,14.7,23.6,15.3,24,16z" fill="#ffffff"/>
+    <path d="M22.2,14.7c-0.2,0-0.4,0-0.6,0c-1-1.3-2.3-2-4-2c-0.1,0-0.2,0-0.4,0c0.2-0.5,0.4-1.2,0.4-2.1c0-0.1-0.1-0.2-0.2-0.2c-0.1,0-7.3,0.2-7.3,7.2c0,0.1,0,0.2,0,0.3c-1.8,0.6-3.1,1-3.2,1c-0.9,0.3-1,0.3-1.1,1.2c-0.1,0.7-2.1,16.3-2.1,16.3L22.2,40V14.7z" fill="#ffffff"/>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <circle cx="260" cy="520" r="15" fill="#6366f1" opacity="0.2" />
+  <circle cx="290" cy="490" r="10" fill="#6366f1" opacity="0.2" />
+  <circle cx="320" cy="510" r="5" fill="#6366f1" opacity="0.2" />
+  <circle cx="540" cy="80" r="15" fill="#6366f1" opacity="0.2" />
+  <circle cx="570" cy="50" r="10" fill="#6366f1" opacity="0.2" />
+  <circle cx="600" cy="70" r="5" fill="#6366f1" opacity="0.2" />
+</svg>

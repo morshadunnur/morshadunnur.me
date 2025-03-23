@@ -3,53 +3,37 @@ import Layout from '../layouts/Layout.astro';
 
 const projects = [
   {
-    title: 'Fashion Boutique Redesign',
-    description: 'Complete redesign of a Shopify store for a fashion boutique, resulting in a 40% increase in sales.',
+    title: 'Baby Shop Redesign',
+    description: 'Complete redesign of a Shopify store for a kids brand shop, resulting in a 40% increase in sales.',
     image: '/images/project-1.jpg',
     tags: ['Shopify', 'Theme Development', 'UI/UX'],
-    client: 'Style Haven',
-    year: '2023'
+    client: 'Gearbee Baby',
+    year: '2024'
   },
   {
     title: 'Inventory Management App',
-    description: 'Custom Shopify app for automated inventory management and stock alerts for an outdoor gear retailer.',
+    description: "Facebook Messenger, designed to revolutionize your customer communication and enhance your online store's performance. Seamlessly integrating power of Facebook Messenger Chat into your store.",
     image: '/images/project-2.jpg',
     tags: ['Shopify App', 'Node.js', 'React'],
-    client: 'Outdoor Gear Shop',
-    year: '2022'
+    client: 'Qbytesoft',
+    year: '2023'
   },
   {
-    title: 'Multi-channel Integration',
-    description: 'Integration of Shopify with multiple sales channels and marketplaces for a home goods brand.',
+    title: 'COD Form & Upsell ‑ CodMonstern',
+    description: 'Supercharge your cash-on-delivery store with CodMonster! Enjoy a fast shopping experience with our 1-click customizable COD form. Boost your Average Order Value (AOV) through smart Upsell and Cross-Sell offers while recovering abandoned carts.',
     image: '/images/project-3.jpg',
-    tags: ['API Integration', 'Shopify', 'Multi-channel'],
-    client: 'Home Essentials Co.',
-    year: '2022'
+    tags: ['API Integration (GraphQL)', 'Shopify', 'Multi-channel' ,'Laravel, React'],
+    client: 'Appstack LLC',
+    year: '2025'
   },
   {
-    title: 'Custom Checkout Experience',
-    description: 'Development of a custom checkout flow to improve conversion rates for a luxury jewelry brand.',
+    title: 'AutoGarage Pro',
+    description: 'Autogarage Pro is a platform that connects car owners, garages, insurers and spares suppliers to transform the automotive service experience. It offers comprehensive and customisable solutions for garage managemen',
     image: '/images/project-4.jpg',
-    tags: ['Shopify Plus', 'Checkout Customization', 'Conversion Optimization'],
-    client: 'Luxury Gems',
-    year: '2021'
+    tags: ['Laravel', 'Automobiles', 'CRM' ,'Automation'],
+    client: 'Autoxpress',
+    year: '2023'
   },
-  {
-    title: 'Subscription Box Service',
-    description: 'Implementation of a subscription box service with recurring billing for a specialty food company.',
-    image: '/images/project-5.jpg',
-    tags: ['Shopify', 'Subscription', 'ReCharge Integration'],
-    client: 'Gourmet Monthly',
-    year: '2021'
-  },
-  {
-    title: 'International E-commerce Expansion',
-    description: 'Expansion of a Shopify store to support multiple currencies, languages, and international shipping.',
-    image: '/images/project-6.jpg',
-    tags: ['Shopify', 'Internationalization', 'Multi-currency'],
-    client: 'Global Trends',
-    year: '2020'
-  }
 ];
 ---
 
@@ -81,6 +65,20 @@ const projects = [
           </div>
         </div>
       ))}
+    </div>
+    
+    <!-- Project CTA Section -->
+    <div class="mt-16 bg-gray-50 rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Have a project in mind?</h2>
+      <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+        Let's collaborate to create a custom Shopify solution that meets your business needs and drives results.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+        Let's discuss your project
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
     </div>
   </div>
 </Layout>
