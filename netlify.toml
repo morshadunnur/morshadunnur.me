@@ -1,0 +1,30 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Correct redirect rules to prevent infinite loops
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  conditions = {Path = {match = "\\.(js|css|svg|jpg|jpeg|png|gif|ico|woff|woff2)$", negate = true}}
+
+# Prevent infinite loops by not redirecting paths that already don't have .html or /index
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*/index"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Handle 404 errors
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
