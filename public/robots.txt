@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morshadunnur.me/sitemap-index.xml
