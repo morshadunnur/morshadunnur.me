@@ -8,6 +8,10 @@ module.exports = {
         secondary: '#0F766E',
         dark: '#111827',
       },
+      fontFamily: {
+        sans: ['Manrope', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+      },
     },
   },
   plugins: [],

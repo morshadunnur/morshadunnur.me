@@ -1,11 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import project1Image from '../assets/images/project-1.jpg';
+import project2Image from '../assets/images/project-2.jpg';
+import project3Image from '../assets/images/project-3.jpg';
+import project4Image from '../assets/images/project-4.jpg';
 
 const projects = [
   {
     title: 'Baby Shop Redesign',
     description: 'Complete redesign of a Shopify store for a kids brand shop, resulting in a 40% increase in sales.',
-    image: '/images/project-1.jpg',
+    image: project1Image,
     tags: ['Shopify', 'Theme Development', 'UI/UX'],
     client: 'Gearbee Baby',
     year: '2024'
@@ -13,7 +18,7 @@ const projects = [
   {
     title: 'Inventory Management App',
     description: "Facebook Messenger, designed to revolutionize your customer communication and enhance your online store's performance. Seamlessly integrating power of Facebook Messenger Chat into your store.",
-    image: '/images/project-2.jpg',
+    image: project2Image,
     tags: ['Shopify App', 'Node.js', 'React'],
     client: 'Qbytesoft',
     year: '2023'
@@ -21,7 +26,7 @@ const projects = [
   {
     title: 'COD Form & Upsell ‑ CodMonstern',
     description: 'Supercharge your cash-on-delivery store with CodMonster! Enjoy a fast shopping experience with our 1-click customizable COD form. Boost your Average Order Value (AOV) through smart Upsell and Cross-Sell offers while recovering abandoned carts.',
-    image: '/images/project-3.jpg',
+    image: project3Image,
     tags: ['API Integration (GraphQL)', 'Shopify', 'Multi-channel' ,'Laravel, React'],
     client: 'Appstack LLC',
     year: '2025'
@@ -29,7 +34,7 @@ const projects = [
   {
     title: 'AutoGarage Pro',
     description: 'Autogarage Pro is a platform that connects car owners, garages, insurers and spares suppliers to transform the automotive service experience. It offers comprehensive and customisable solutions for garage managemen',
-    image: '/images/project-4.jpg',
+    image: project4Image,
     tags: ['Laravel', 'Automobiles', 'CRM' ,'Automation'],
     client: 'Autoxpress',
     year: '2023'
@@ -38,9 +43,9 @@ const projects = [
 ---
 
 <Layout title="Projects | Morshad Unnur - Shopify Developer" description="Portfolio of Shopify development projects including custom theme development, app integration, and e-commerce solutions.">
-  <div class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+  <div class="bg-gradient-to-r from-primary to-secondary text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">Projects</h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 mt-8">Projects</h1>
       <p class="text-xl">A showcase of my Shopify development work and e-commerce solutions.</p>
     </div>
   </div>
@@ -49,7 +54,8 @@ const projects = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map((project) => (
         <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src={project.image} alt={project.title} class="w-full h-48 object-cover" />
+          {/* <img src={project.image} alt={project.title} class="w-full h-48 object-cover" /> */}
+          <Image src={project.image} alt={project.title} class="w-full h-48 object-cover" />
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">{project.title}</h3>
             <p class="text-gray-600 mb-4">{project.description}</p>

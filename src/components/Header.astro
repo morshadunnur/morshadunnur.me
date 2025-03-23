@@ -2,12 +2,12 @@
 // Main navigation header with responsive design
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-30">
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-30 w-full transition-all duration-300" id="main-header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex items-center">
         <a href="/" class="flex-shrink-0 flex items-center">
-          <span class="text-xl font-bold text-primary">Morshadun Nur</span>
+          <span class="text-3xl font-heading font-bold text-primary">Morshadun Nur</span>
         </a>
       </div>
       
@@ -45,3 +45,40 @@
     </div>
   </div>
 </header>
+
+<!-- Spacer to prevent content from being hidden under the fixed header -->
+<div class="h-16"></div>
+
+<script>
+  // Add scroll event listener to handle sticky header behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      
+      // Add shadow and background when scrolling down
+      if (scrollTop > 10) {
+        header.classList.add('shadow-md');
+        header.classList.add('bg-white/95');
+        header.classList.add('backdrop-blur-sm');
+      } else {
+        header.classList.remove('shadow-md');
+        header.classList.remove('bg-white/95');
+        header.classList.remove('backdrop-blur-sm');
+      }
+      
+      // Hide header when scrolling down, show when scrolling up
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        // Scrolling up
+        header.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scrollTop
+    });
+  });
+</script>

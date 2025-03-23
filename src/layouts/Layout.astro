@@ -28,17 +28,26 @@ const { title, description = "Morshad Unnur - Shopify Developer specializing in 
     <meta property="og:url" content={Astro.url} />
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-  </head>
-  <body class="h-full flex flex-col bg-gray-50">
-    <Header />
-    <MobileNav />
     
-    <main class="flex-grow">
-      <slot />
-    </main>
-    
-    <Footer />
-  </body>
+    <!-- Existing meta tags and other head content -->
+        
+        <!-- Add Google Fonts for Outfit and Manrope -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Existing stylesheets and other head content -->
+        </head>
+        <body class="h-full flex flex-col bg-gray-50">
+          <Header />
+          <MobileNav />
+          
+          <main class="flex-grow">
+            <slot />
+          </main>
+          
+          <Footer />
+        </body>
 </html>
 
 <style is:global>
@@ -57,4 +66,15 @@ const { title, description = "Morshad Unnur - Shopify Developer specializing in 
     outline: 2px solid theme('colors.primary');
     outline-offset: 2px;
   }
+  /* Existing global styles */
+          
+          /* Set default font for body */
+          body {
+            font-family: 'Manrope', sans-serif;
+          }
+          
+          /* Set default font for all headings */
+          h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+          }
 </style>

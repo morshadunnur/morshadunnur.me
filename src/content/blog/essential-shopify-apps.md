@@ -3,7 +3,7 @@ title: "10 Essential Shopify Apps for New Stores"
 description: "Discover the must-have Shopify apps that will help your new store succeed from day one."
 publishDate: "2023-06-15"
 author: "Morshadun Nur"
-image: "/images/blog-1.jpg"
+image: "/images/blog-3.jpg"
 tags: ["Shopify", "Apps", "E-commerce", "Store Setup"]
 ---
 

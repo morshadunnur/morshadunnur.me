@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 // Get all blog posts and sort by publish date (newest first)
@@ -8,9 +9,9 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.getTime() - a.data.publ
 ---
 
 <Layout title="Blog | Morshad Unnur - Shopify Developer" description="Articles and insights on Shopify development, e-commerce, and online store optimization.">
-  <div class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+  <div class="bg-gradient-to-r from-primary to-secondary text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">Blog</h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 mt-8">Blog</h1>
       <p class="text-xl">Articles and insights on Shopify development, e-commerce, and online store optimization.</p>
     </div>
   </div>
@@ -20,7 +21,16 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.getTime() - a.data.publ
       {posts.map((post) => (
         <div class="bg-white rounded-lg overflow-hidden shadow-md">
           <a href={`/blog/${post.slug}`}>
-            <img src={post.data.image} alt={post.data.title} class="w-full h-48 object-cover" />
+            <img 
+              src={post.data.image} 
+              alt={post.data.title} 
+              class="w-full h-48 object-cover" 
+            />
+            {/* <Image 
+              src={post.data.image}
+              alt={post.data.title}
+              class="w-full h-48 object-cover"
+            /> */}
           </a>
           <div class="p-6">
             <h2 class="text-xl font-bold mb-2">
