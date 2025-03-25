@@ -8,12 +8,21 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Morshad Unnur - Shopify Developer specializing in custom theme development and e-commerce solutions" } = Astro.props;
+const { title, description = "Morshadun Nur - Shopify Developer specializing in Shopify App development and e-commerce solutions" } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="h-full">
   <head>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FP6QSRZY6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FP6QSRZY6C');
+</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" />
@@ -37,6 +46,7 @@ const { title, description = "Morshad Unnur - Shopify Developer specializing in 
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
         
         <!-- Existing stylesheets and other head content -->
+        
         </head>
         <body class="h-full flex flex-col bg-gray-50">
           <Header />

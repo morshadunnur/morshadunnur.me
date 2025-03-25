@@ -13,6 +13,16 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      serialize(item) {
+        // Customize the sitemap entries
+        return {
+          url: item.url,
+          lastmod: item.lastmod,
+          changefreq: item.changefreq || 'weekly',
+          priority: item.priority || 0.7,
+        };
+      },
+      entryLimit: 10000, // Increase the entry limit if needed
     }),
   ]
 });

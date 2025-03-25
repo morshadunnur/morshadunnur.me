@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap-index.xml
+Sitemap: https://morshadunnur.me/sitemap-index.xml
+Sitemap: https://morshadunnur.me/sitemap.xml

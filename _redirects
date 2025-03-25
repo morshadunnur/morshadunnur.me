@@ -1,6 +1,0 @@
-# Prevent infinite loops by not redirecting paths that already don't have .html or /index
-/*.html    /:splat    301
-/*/index    /:splat    301
-
-# Handle 404 errors
-/*    /404.html    404
