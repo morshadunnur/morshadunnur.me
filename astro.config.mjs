@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  trailingSlash: 'never',
   site: 'https://morshadunnur.me',
   integrations: [
     tailwind(),
