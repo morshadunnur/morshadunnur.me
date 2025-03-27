@@ -8,7 +8,9 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Morshadun Nur - Shopify Developer specializing in Shopify App development and e-commerce solutions" } = Astro.props;
+const { title, description = "Morshadun Nur - Shopify Developer specializing in Shopify Store Design, Shopify App development and e-commerce solutions" } = Astro.props;
+// SEO Keywords
+const keywords = "Shopify Developer, Web Developer, Full Stack Developer, Remote Work, Freelance Developer, Shopify Expert, E-commerce Developer, Shopify Store Setup, Shopify Theme Customization, Shopify App Development";
 ---
 
 <!DOCTYPE html>
@@ -37,6 +39,13 @@ const { title, description = "Morshadun Nur - Shopify Developer specializing in 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <!-- Additional SEO meta tags -->
+    <meta name="author" content="Morshadun Nur" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
     
     <!-- Additional meta tags for SEO and social sharing -->
     <meta property="og:title" content={title} />
@@ -44,7 +53,13 @@ const { title, description = "Morshadun Nur - Shopify Developer specializing in 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:image" content="/images/og-image.jpg" />
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/og-image.jpg" />
+    
     
     <!-- Existing meta tags and other head content -->
         
