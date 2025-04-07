@@ -1,5 +1,10 @@
+# Morshadun Nur - Shopify Expert & Developer
+# Services: Shopify Store Setup, Shopify Apps Development, Rest to GraphQL Migration
+# Keywords: Best Shopify Experts in Bangladesh, Top App Developer for Shopify, Shopify App Developer
+
 User-agent: *
 Allow: /
 
 Sitemap: https://morshadunnur.me/sitemap-index.xml
 Sitemap: https://morshadunnur.me/sitemap.xml
+Sitemap: https://www.morshadunnur.me/sitemap.xml

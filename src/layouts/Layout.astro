@@ -10,7 +10,51 @@ export interface Props {
 
 const { title, description = "Morshadun Nur - Shopify Developer specializing in Shopify Store Design, Shopify App development and e-commerce solutions" } = Astro.props;
 // SEO Keywords
-const keywords = "Shopify Developer, Web Developer, Full Stack Developer, Remote Work, Freelance Developer, Shopify Expert, E-commerce Developer, Shopify Store Setup, Shopify Theme Customization, Shopify App Development";
+const keywords = "Top Apps Developer for Shopify,Shopify Developer, Web Developer, Full Stack Developer, Remote Work, Freelance Developer, Shopify Expert, E-commerce Developer, Shopify Store Setup, Shopify Theme Customization, Shopify App Development, Best Shopify Experts in Bangladesh";
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Morshadun Nur - Shopify Developer",
+  "description": description,
+  "image": "/images/og-image.jpg",
+  "url": "https://morshadunnur.me",
+  "telephone": "+8801611032464",
+  "email": "me@morshadunnur.me",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Bangladesh"
+  },
+  "priceRange": "$$",
+  "sameAs": [
+    "https://github.com/morshadunnur",
+    "https://www.linkedin.com/in/morshadunnur/",
+    "https://twitter.com/morshadunnur"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Shopify Store Setup",
+      "description": "Custom Shopify store setup and development tailored to your brand and business needs."
+    },
+    {
+      "@type": "Offer",
+      "name": "Shopify App Development",
+      "description": "Development of custom Shopify apps to add unique features to your online store."
+    },
+    {
+      "@type": "Offer",
+      "name": "Shopify Theme Customization",
+      "description": "Customization of Shopify themes to match your brand identity and improve user experience."
+    },
+    {
+      "@type": "Offer",
+      "name": "Shopify REST to GraphQL Migration",
+      "description": "Migrate your Shopify integrations from REST API to modern GraphQL API for better performance."
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -60,6 +104,8 @@ const keywords = "Shopify Developer, Web Developer, Full Stack Developer, Remote
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/images/og-image.jpg" />
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     
     <!-- Existing meta tags and other head content -->
         
