@@ -8,7 +8,10 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Morshadun Nur - Shopify Developer specializing in Shopify Store Design, Shopify App development and e-commerce solutions" } = Astro.props;
+const { title = "Morshadun Nur - Shopify Developer,Shopify App developer, Shopify Expert, Shopify Expert in Bangladesh, ",
+  description = "Morshadun Nur is a Shopify Developer specializing in Shopify Store Design, Shopify App development and e-commerce solutions. With over 7+ years of experience in the industry, he has a proven track record of delivering high-quality Shopify solutions to clients worldwide."
+ } = Astro.props;
+
 // SEO Keywords
 const keywords = "Top Apps Developer for Shopify,Shopify Developer, Web Developer, Full Stack Developer, Remote Work, Freelance Developer, Shopify Expert, E-commerce Developer, Shopify Store Setup, Shopify Theme Customization, Shopify App Development, Best Shopify Experts in Bangladesh";
 
@@ -16,7 +19,7 @@ const keywords = "Top Apps Developer for Shopify,Shopify Developer, Web Develope
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Morshadun Nur - Shopify Developer",
+  "name": "Morshadun Nur - Shopify Developer,Shopify App developer, Shopify Expert, Shopify Expert in Bangladesh",
   "description": description,
   "image": "/images/og-image.jpg",
   "url": "https://morshadunnur.me",
