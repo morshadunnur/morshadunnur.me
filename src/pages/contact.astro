@@ -237,11 +237,15 @@ let formStatus = '';
 const googleResponse = await fetch(googleScriptUrl, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json;charset=UTF-8'
   },
   body: JSON.stringify(jsonData),
   mode: 'no-cors' // This prevents CORS errors but you won't be able to read the response
 });
+
+// Add a small delay to ensure Google has time to process
+await new Promise(resolve => setTimeout(resolve, 1000));
           // Show success message
           successMessage.classList.remove('hidden');
           form.reset();  
