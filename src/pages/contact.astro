@@ -203,15 +203,12 @@ let formStatus = '';
 <script>
   // Client-side form handling
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm') as HTMLFormElement;
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
     
     // Google Sheets script URL
     const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbzT1zuqcQfL6C4wGnQEQb3Jk2B1sNKe1f3OmWq_RMz61k9yrug723kngP19pjsCCNExMA/exec';
-    
-    // Discord webhook URL
-    const discordWebhookUrl = 'https://discord.com/api/webhooks/1353416848871391362/fOi851l7QjzffH-yMFZ3sdyVxfE2OmfqH3JXhVbmKDGTkBbimvPooWPOyhZX6I2thYXy';
     
     if (form) {
       form.addEventListener('submit', async (e) => {
@@ -228,7 +225,7 @@ let formStatus = '';
         try {
 
           // Prepare the data as JSON
-const jsonData = {
+          const jsonData = {
   name: formProps.name,
   email: formProps.email,
   subject: formProps.subject,
@@ -245,89 +242,10 @@ const googleResponse = await fetch(googleScriptUrl, {
   body: JSON.stringify(jsonData),
   mode: 'no-cors' // This prevents CORS errors but you won't be able to read the response
 });
-          // Send to Google Sheets using JSONP approach to avoid CORS
-          // Create a temporary form and submit it
-          // const tempForm = document.createElement('form');
-          // tempForm.method = 'POST';
-          // tempForm.action = googleScriptUrl;
-          // tempForm.target = '_blank'; // This opens in a new tab, but we'll close it immediately
-
-
-          
-          // // Add form fields
-          // for (const key in formProps) {
-          //   const hiddenField = document.createElement('input');
-          //   hiddenField.type = 'hidden';
-          //   hiddenField.name = key;
-          //   hiddenField.value = formProps[key];
-          //   tempForm.appendChild(hiddenField);
-          // }
-          
-          // // Add timestamp
-          // const timestampField = document.createElement('input');
-          // timestampField.type = 'hidden';
-          // timestampField.name = 'timestamp';
-          // timestampField.value = new Date().toISOString();
-          // tempForm.appendChild(timestampField);
-          
-          // // Append to body, submit, and remove
-          // document.body.appendChild(tempForm);
-          
-          // // Create a hidden iframe to target the form submission
-          // const iframe = document.createElement('iframe');
-          // iframe.name = 'hidden-iframe';
-          // iframe.style.display = 'none';
-          // document.body.appendChild(iframe);
-          
-          // // Set the form to target our hidden iframe
-          // tempForm.target = 'hidden-iframe';
-          // tempForm.submit();
-          
-          // Send to Discord
-          const discordResponse = await fetch(discordWebhookUrl, {
-            method: 'POST',
-            body: JSON.stringify({
-              content: `New contact form submission!`,
-              embeds: [{
-                title: `${formProps.subject}`,
-                description: `${formProps.message}`,
-                color: 5814783, // Teal color
-                fields: [
-                  {
-                    name: 'Name',
-                    value: `${formProps.name}`,
-                    inline: true
-                  },
-                  {
-                    name: 'Email',
-                    value: `${formProps.email}`,
-                    inline: true
-                  },
-                  {
-                    name: 'Timestamp',
-                    value: new Date().toLocaleString(),
-                    inline: false
-                  }
-                ]
-              }]
-            }),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
-          
-          // Clean up
-          setTimeout(() => {
-            document.body.removeChild(tempForm);
-            document.body.removeChild(iframe);
-          }, 500);
-          
           // Show success message
           successMessage.classList.remove('hidden');
-          form.reset();
-          
-          // Scroll to success message
-          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          form.reset();  
+          // Send to Discord
         } catch (error) {
           // Show error message
           errorMessage.classList.remove('hidden');
