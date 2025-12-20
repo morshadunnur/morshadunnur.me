@@ -1,0 +1,238 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout
+  title="Shopify Horizon Theme: Implementing Selectable Menu Types"
+  description="Learn how to extend the Shopify Horizon theme to support both megamenu and dropdown menu types, giving your store's navigation a modern touch."
+  publishDate="2025-12-20"
+  heroImage="/images/blog-4.jpg"
+  alt="Shopify Horizon Theme Dropdown Menu"
+>
+  <div class="prose prose-lg max-w-none">
+    <p class="text-xl font-medium text-gray-700 mb-6">
+      In this tutorial, we’ll walk through how to extend the standard Shopify header menu to support a compact "Dropdown" style alongside the traditional "Megamenu". This customization gives content managers the flexibility to choose the best layout for each menu item directly from the Theme Editor.
+    </p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">The Challenge</h2>
+
+    <p>
+      By default, our theme utilized a full-width "megamenu" layout for all nested links. While great for large catalogs, this style is often overkill for simple lists. We wanted to introduce a setting that allows users to toggle between:
+    </p>
+
+    <ul class="list-disc pl-6 my-4 space-y-2">
+      <li><strong>Megamenu:</strong> The standard immersive, full-width layout.</li>
+      <li><strong>Dropdown:</strong> A compact, classic vertical list.</li>
+    </ul>
+
+    <p>Here is the exact code implementation to achieve this.</p>
+
+    <hr class="my-8" />
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Step 1: Extend the Schema</h2>
+
+    <p>
+      First, we need to add a setting to the block schema to capture the user's preference. We modified <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">blocks/_header-menu.liquid</code> to include a new <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">select</code> input. This ensures backward compatibility by defaulting to "megamenu".
+    </p>
+
+    <p class="mt-4"><strong>File:</strong> <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">blocks/_header-menu.liquid</code></p>
+
+    <p>Add this object to your block's <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">settings</code> array:</p>
+
+    <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6 text-sm"><code>&#123;
+  "type": "select",
+  "id": "submenu_type",
+  "label": "Submenu type",
+  "options": [
+    &#123;
+      "value": "megamenu",
+      "label": "Megamenu"
+    &#125;,
+    &#123;
+      "value": "dropdown",
+      "label": "Dropdown"
+    &#125;
+  ],
+  "default": "megamenu"
+&#125;</code></pre>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Step 2: Implement Conditional Logic</h2>
+
+    <p>
+      Next, we update the Liquid template to render the appropriate component based on the selected setting. In <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">snippets/header-menu.liquid</code>, we check the setting and wrap the dropdown in the appropriate container classes that our CSS will target.
+    </p>
+
+    <p class="mt-4"><strong>File:</strong> <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">snippets/header-menu.liquid</code></p>
+
+    <p>Replace the rendering logic (usually inside the nested link loop) with this:</p>
+
+    <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6 text-sm"><code>&#123;%- assign submenu_type = block.settings.submenu_type -%&#125;
+&#123;%- if submenu_type == 'dropdown' -%&#125;
+  &lt;div class="menu-list__submenu menu-list__submenu--dropdown&#123;&#123; color_scheme_classes &#125;&#125;" ref="submenu[]"&gt;
+    &lt;div
+      id="submenu-&#123;&#123; forloop.index &#125;&#125;"
+      class="menu-list__submenu-inner"
+      style="&#123;% render 'submenu-font-styles', settings: block_settings %&#125;"
+    &gt;
+      &#123;% assign list_id = 'MegaMenuList-' | append: forloop.index %&#125;
+      &#123;% render 'qb-dropdown-menu', section: section, parent_link: link, id: list_id %&#125;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&#123;%- else -%&#125;
+  &#123;% render 'mega-menu',
+    link: link,
+    index: index,
+    block: block,
+    menulink_link: menulink_link,
+    menulink_title: menulink_title
+  %&#125;
+&#123;%- endif -%&#125;</code></pre>
+
+    <div class="my-8 p-4 bg-gray-50 border-l-4 border-primary rounded">
+      <p class="font-medium">Note:</p>
+      <p>The class <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">menu-list__submenu--dropdown</code> on the wrapper is crucial for our CSS selectors in Step 4.</p>
+    </div>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Step 3: Create the Dropdown Component</h2>
+
+    <p>
+      We use a lightweight snippet for the dropdown content itself. This snippet handles the list structure and basic layout.
+    </p>
+
+    <p class="mt-4"><strong>File:</strong> <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">snippets/qb-dropdown-menu.liquid</code></p>
+
+    <p>Create this new snippet:</p>
+
+    <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6 text-sm"><code>&#123;%- doc -%&#125;
+  Simple dropdown menu for header submenu.
+&#123;%- enddoc -%&#125;
+
+&lt;div class="qb-dropdown-menu"&gt;
+  &lt;ul class="qb-dropdown__list list-unstyled" data-menu-list-id="&#123;&#123; id &#125;&#125;"&gt;
+    &#123;% for child in parent_link.links %&#125;
+      &lt;li class="qb-dropdown__item"&gt;
+        &lt;a
+          href="&#123;&#123; child.url &#125;&#125;"
+          class="mega-menu__link"
+        &gt;
+          &lt;span class="mega-menu__link-title wrap-text"&gt;&#123;&#123;- child.title -&#125;&#125;&lt;/span&gt;
+        &lt;/a&gt;
+
+        &#123;% if child.links != blank %&#125;
+          &lt;ul class="qb-dropdown__sublist list-unstyled"&gt;
+            &#123;% for grand in child.links %&#125;
+              &lt;li class="qb-dropdown__subitem"&gt;
+                &lt;a href="&#123;&#123; grand.url &#125;&#125;" class="mega-menu__link"&gt;
+                  &lt;span class="mega-menu__link-title wrap-text"&gt;&#123;&#123;- grand.title -&#125;&#125;&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &#123;% endfor %&#125;
+          &lt;/ul&gt;
+        &#123;% endif %&#125;
+      &lt;/li&gt;
+    &#123;% endfor %&#125;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&#123;% stylesheet %&#125;
+  /* Compact dropdown panel (not full-width) */
+  .qb-dropdown-menu &#123;
+    width: max-content;
+    max-width: 320px;
+    padding: var(--padding-sm);
+  &#125;
+
+  /* Ensure the submenu container aligns left when showing dropdown */
+  .menu-list__submenu-inner:has(.qb-dropdown-menu) &#123;
+    justify-content: flex-start;
+  &#125;
+
+  .qb-dropdown-menu .qb-dropdown__list &#123;
+    display: block;
+  &#125;
+
+  .qb-dropdown-menu .qb-dropdown__item &#123;
+    white-space: normal;
+    padding-block: var(--padding-2xs);
+  &#125;
+
+  .qb-dropdown-menu .qb-dropdown__sublist &#123;
+    margin-top: var(--padding-xs);
+    padding-inline-start: var(--padding-sm);
+    display: block;
+  &#125;
+
+  .qb-dropdown-menu .qb-dropdown__subitem &#123;
+    white-space: normal;
+    padding-block: 2px;
+  &#125;
+&#123;% endstylesheet %&#125;</code></pre>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Step 4: Styling & Polishing</h2>
+
+    <p>
+      The trickiest part of this implementation was handling the theme's global background overlay (<code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">.overflow-menu::after</code>), which is designed to cover the content area when a megamenu is open. For a simple dropdown, this overlay is unnecessary and distracting.
+    </p>
+
+    <p>We added specific CSS to <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">blocks/_header-menu.liquid</code> to:</p>
+
+    <ol class="list-decimal pl-6 my-4 space-y-2">
+      <li><strong>Constrain the Width:</strong> Force the dropdown container to hug its content (<code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">max-content</code>) instead of stretching full-width.</li>
+      <li><strong>Smooth Transitions:</strong> Add a subtle slide-up and fade-in animation.</li>
+      <li><strong>Hide the Overlay:</strong> Aggressively hide the global background when interacting with a dropdown item.</li>
+    </ol>
+
+    <p class="mt-4"><strong>File:</strong> <code class="bg-gray-100 px-1 py-0.5 rounded text-sm text-pink-600">blocks/_header-menu.liquid</code></p>
+
+    <p>Add this to your stylesheet:</p>
+
+    <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6 text-sm"><code>/* Dropdown Styles */
+.menu-list__list-item:has(> .menu-list__submenu--dropdown) &#123;
+  position: relative;
+&#125;
+
+.menu-list__list-item > .menu-list__submenu.menu-list__submenu--dropdown &#123;
+  width: max-content !important;
+  left: 0;
+  right: auto;
+  clip-path: none !important;
+  
+  /* Smooth Open Animation */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+&#125;
+
+.menu-list__list-item:where(:hover, :focus-within) > .menu-list__submenu.menu-list__submenu--dropdown &#123;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+&#125;
+
+/* Hide shared background for dropdowns smoothly */
+.overflow-menu:has(.menu-list__list-item:hover > .menu-list__submenu--dropdown)::after,
+.overflow-menu:has(.menu-list__list-item:focus-within > .menu-list__submenu--dropdown)::after &#123;
+  opacity: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+&#125;
+
+/* Fix dropdown text color */
+.menu-list__list-item .menu-list__submenu--dropdown a &#123;
+  color: var(--menu-child-font-color) !important;
+&#125;</code></pre>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Conclusion</h2>
+
+    <p>
+      With just a few strategic updates to the schema, logic, and CSS, we've successfully added a robust "Dropdown" mode. This allows for a cleaner navigation experience for simple categories while preserving the rich "Megamenu" for more complex sections.
+    </p>
+
+    <div class="my-8 p-6 bg-gray-50 rounded-lg">
+      <h3 class="text-xl font-bold mb-3">Need Help Customizing Your Shopify Theme?</h3>
+      <p class="mb-4">I specialize in advanced Shopify theme development and can help you implement custom features like this one.</p>
+      <a href="/contact" class="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-secondary transition-colors">Contact Me</a>
+    </div>
+  </div>
+</BlogLayout>
