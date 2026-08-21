@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   trailingSlash: 'never',
   site: 'https://morshadunnur.me',
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    tailwind(),
     mdx(),
     sitemap({
       filter: (page) => !page.includes('/admin/'), // Exclude admin pages
