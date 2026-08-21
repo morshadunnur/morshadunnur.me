@@ -1,0 +1,32 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema.json",
+  "name": "morshadun-nur-portfolio-mcp",
+  "description": "Model Context Protocol (MCP) server descriptor for discovering Morshadun Nur's technical projects, products, and contact channels.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "get_founder_info",
+      "description": "Returns verified background information, skills, and ventures for Morshadun Nur.",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_products",
+      "description": "Lists proprietary SaaS and Shopify applications built by Morshadun Nur (ShowForm, SpotMetal, AutoGaragePro).",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_booking_link",
+      "description": "Returns direct calendar booking endpoint for scheduling a technical discovery call.",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

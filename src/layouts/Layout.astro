@@ -2,174 +2,369 @@
 import Header from '../components/Header.astro';
 import MobileNav from '../components/MobileNav.astro';
 import Footer from '../components/Footer.astro';
+import FloatingDock from '../components/FloatingDock.astro';
+import GsapAnimations from '../components/GsapAnimations.astro';
 
 export interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  image?: string;
 }
 
-const { title = "Morshadun Nur - Shopify Developer,Shopify App developer, Shopify Expert, Shopify Expert in Bangladesh, ",
-  description = "Morshadun Nur is a Shopify Developer specializing in Shopify Store Design, Shopify App development and e-commerce solutions. With over 7+ years of experience in the industry, he has a proven track record of delivering high-quality Shopify solutions to clients worldwide."
- } = Astro.props;
+const {
+  title = "Morshadun Nur — Founder, Product Engineer, Shopify & AI Builder",
+  description = "Building Shopify, SaaS & AI products that help businesses scale. Founder of QbyteSoft & StoresForge. Creator of ShowForm.app.",
+  image = "/images/og-image.jpg"
+} = Astro.props;
 
-// SEO Keywords
-const keywords = "Top Apps Developer for Shopify,Shopify Developer, Web Developer, Full Stack Developer, Remote Work, Freelance Developer, Shopify Expert, E-commerce Developer, Shopify Store Setup, Shopify Theme Customization, Shopify App Development, Best Shopify Experts in Bangladesh";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://morshadunnur.me');
+const absoluteImageURL = new URL(image, Astro.site || 'https://morshadunnur.me').toString();
 
-// JSON-LD Structured Data
+// SEO Keywords for founder positioning & commerce expertise
+const keywords = "Morshadun Nur, Founder, Product Engineer, Shopify Specialist, Shopify Plus Developer, Shopify App Developer, SaaS Builder, AI Automation, QbyteSoft, StoresForge, ShowForm, SpotMetal, AutoGaragePro, Custom Software";
+
+// JSON-LD Structured Data for Comprehensive AEO, GEO & SEO Entity Graph
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Morshadun Nur - Shopify Developer,Shopify App developer, Shopify Expert, Shopify Expert in Bangladesh",
-  "description": description,
-  "image": "/images/og-image.jpg",
-  "url": "https://morshadunnur.me",
-  "telephone": "+8801611032464",
-  "email": "me@morshadunnur.me",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "Bangladesh"
-  },
-  "priceRange": "$$",
-  "sameAs": [
-    "https://github.com/morshadunnur",
-    "https://www.linkedin.com/in/morshadunnur/",
-    "https://twitter.com/morshadunnur"
-  ],
-  "offers": [
+  "@graph": [
     {
-      "@type": "Offer",
-      "name": "Shopify Store Setup",
-      "description": "Custom Shopify store setup and development tailored to your brand and business needs."
+      "@type": "Person",
+      "@id": "https://morshadunnur.me/#person",
+      "name": "Morshadun Nur",
+      "alternateName": ["Nur", "Morshadun", "Morshad"],
+      "jobTitle": "Founder & Senior Product Engineer",
+      "description": "Founder of QbyteSoft and StoresForge. Creator of ShowForm.app and SpotMetal. Top Rated Plus Shopify Developer with 10+ years of engineering experience.",
+      "url": "https://morshadunnur.me",
+      "image": absoluteImageURL,
+      "email": "me@morshadunnur.me",
+      "sameAs": [
+        "https://www.upwork.com/freelancers/morshadunnur",
+        "https://github.com/morshadunnur",
+        "https://www.linkedin.com/in/morshadunnur/",
+        "https://twitter.com/morshadunnur"
+      ],
+      "knowsAbout": [
+        "Shopify App Development",
+        "Shopify Plus Architecture",
+        "Liquid Templating & Hydrogen",
+        "SaaS Product Engineering",
+        "Full Stack Development",
+        "React & Node.js",
+        "GraphQL & REST APIs",
+        "AI Agent Automation & LLM Integration",
+        "E-Commerce Conversion Rate Optimization (CRO)",
+        "Database Architecture & Cloud Scaling"
+      ],
+      "founder": [
+        {
+          "@type": "Organization",
+          "name": "QbyteSoft",
+          "url": "https://qbytesoft.com",
+          "description": "Custom software development agency building high-performance web applications, SaaS platforms, and enterprise solutions."
+        },
+        {
+          "@type": "Organization",
+          "name": "StoresForge",
+          "url": "https://storesforge.com",
+          "description": "Full-service Shopify agency engineering high-converting storefronts, custom apps, and automated commerce workflows."
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Technical Consulting & Engineering Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Shopify & Shopify Plus Engineering",
+              "description": "Custom theme development, checkout UI extensions, private/public app development, and headless storefronts."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SaaS Platform Engineering",
+              "description": "From MVP architecture to scalable production systems with multi-tenant databases and automated billing."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Automation & LLM Workflows",
+              "description": "Integration of intelligent autonomous agents, customer support automation, and custom internal tools."
+            }
+          }
+        ]
+      }
     },
     {
-      "@type": "Offer",
-      "name": "Shopify App Development",
-      "description": "Development of custom Shopify apps to add unique features to your online store."
+      "@type": "SoftwareApplication",
+      "@id": "https://showform.app/#app",
+      "name": "ShowForm.app",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Shopify",
+      "url": "https://showform.app",
+      "author": {
+        "@id": "https://morshadunnur.me/#person"
+      },
+      "description": "Shopify-native form builder enabling merchants to create high-converting custom forms, capture targeted leads, and streamline customer communication without writing code."
     },
     {
-      "@type": "Offer",
-      "name": "Shopify Theme Customization",
-      "description": "Customization of Shopify themes to match your brand identity and improve user experience."
+      "@type": "SoftwareApplication",
+      "@id": "https://apps.shopify.com/spotmetal-pricing-buyback/#app",
+      "name": "SpotMetal",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Shopify",
+      "url": "https://apps.shopify.com/spotmetal-pricing-buyback",
+      "author": {
+        "@id": "https://morshadunnur.me/#person"
+      },
+      "description": "Automated real-time precious metals pricing engine for Shopify stores selling gold, silver, and bullion with dynamic live banners and accurate spread calculations."
     },
     {
-      "@type": "Offer",
-      "name": "Shopify REST to GraphQL Migration",
-      "description": "Migrate your Shopify integrations from REST API to modern GraphQL API for better performance."
+      "@type": "WebSite",
+      "@id": "https://morshadunnur.me/#website",
+      "url": "https://morshadunnur.me",
+      "name": "Morshadun Nur — Founder & Product Engineer",
+      "description": description,
+      "publisher": {
+        "@id": "https://morshadunnur.me/#person"
+      }
     }
   ]
 };
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full scroll-smooth">
   <head>
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FP6QSRZY6C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FP6QSRZY6C');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KCP5GK8L');</script>
-  <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP6QSRZY6C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FP6QSRZY6C');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KCP5GK8L');</script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- AI Agent Readiness & Discovery (isitagentready.com standards) -->
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Context" />
+    <link rel="alternate" type="application/json" href="/.well-known/agent.json" title="AI Agent Manifest" />
+    <link rel="alternate" type="application/json" href="/.well-known/mcp.json" title="Model Context Protocol Card" />
+    
     <meta name="generator" content={Astro.generator} />
+    
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
 
-    <!-- Additional SEO meta tags -->
     <meta name="author" content="Morshadun Nur" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
+    <!-- Advanced Robots Directives for Search, Discover, and Generative AI -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     
-    <!-- Additional meta tags for SEO and social sharing -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:image" content={absoluteImageURL} />
+    <meta property="og:site_name" content="Morshadun Nur" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/og-image.jpg" />
+    <meta name="twitter:image" content={absoluteImageURL} />
+    <meta name="twitter:creator" content="@morshadunnur" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     
-    <!-- Existing meta tags and other head content -->
-        
-        <!-- Add Google Fonts for Outfit and Manrope -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-        
-        <!-- Existing stylesheets and other head content -->
-        
-        </head>
-        <body class="h-full flex flex-col bg-gray-50">
-          <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCP5GK8L"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-          <Header />
-          <MobileNav />
-          
-          <main class="flex-grow">
-            <slot />
-          </main>
-          
-          <Footer />
-          <!-- Cal floating-popup embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "15min", {origin:"https://cal.com"});
+    <!-- Theme Initialization Script (Prevent FOUC) -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
 
-  Cal.ns["15min"]("floatingButton", {"calLink":"morshadunnur/15min","config":{"layout":"month_view","theme":"light"},"buttonText":"Schedule a Call","buttonColor":"#0056b3"}); 
-  Cal.ns["15min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#0056b3"}},"hideEventTypeDetails":false,"layout":"month_view"});
-  </script>
-  <!-- Cal floating-popup embed code ends -->
-        </body>
+    <!-- Google Fonts: Red Hat Display, Outfit, Geist Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Red+Hat+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="h-full flex flex-col bg-surface-ground text-content-primary font-sans antialiased selection:bg-brand-amber selection:text-white dark:bg-[#09090C] dark:text-[#FBFBFA] transition-colors duration-300">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCP5GK8L"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <Header />
+    <MobileNav />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+    
+    <Footer />
+    <FloatingDock />
+    <GsapAnimations />
+
+    <!-- Cal floating-popup embed code begins -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "15min", {origin:"https://cal.com"});
+      Cal.ns["15min"]("floatingButton", {"calLink":"morshadunnur/15min","config":{"layout":"month_view","theme":"light"},"buttonText":"Schedule a Call","buttonColor":"#111114"}); 
+      Cal.ns["15min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#111114"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <!-- Cal floating-popup embed code ends -->
+  </body>
 </html>
 
 <style is:global>
-  /* Base styles */
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
+  :root {
+    --_typography---font--family--body: "Outfit", "Outfit Variablefont Wght", Arial, sans-serif;
+    --_typography---font--family--display: "Red Hat Display", "Redhatdisplay Variablefont Wght", Arial, sans-serif;
+  }
   
-  /* Custom global styles */
   html {
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
   }
   
-  /* Focus styles for accessibility */
   :focus-visible {
-    outline: 2px solid theme('colors.primary');
+    outline: 2px solid #D97706;
     outline-offset: 2px;
   }
-  /* Existing global styles */
-          
-          /* Set default font for body */
-          body {
-            font-family: 'Manrope', sans-serif;
-          }
-          
-          /* Set default font for all headings */
-          h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-          }
+  
+  body {
+    font-family: var(--_typography---font--family--body);
+    font-size: 1.0625rem; /* 17px comfortable base size */
+    line-height: 1.68;
+    letter-spacing: -0.012em;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--_typography---font--family--display);
+    letter-spacing: -0.025em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'Geist Mono', monospace;
+  }
+
+  /* Brighten Studios-Inspired Deep Obsidian Dark Mode System */
+  html.dark {
+    color-scheme: dark;
+    background-color: #09090C;
+  }
+
+  html.dark .bg-surface-ground {
+    background-color: #09090C !important;
+  }
+
+  html.dark .bg-surface-card {
+    background-color: #111117 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  html.dark .bg-surface-card:hover {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 10px 35px -3px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  html.dark .bg-surface-muted {
+    background-color: #0E0E14 !important;
+  }
+
+  html.dark .border-border-subtle {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  html.dark .border-border-muted {
+    border-color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  html.dark .text-content-primary {
+    color: #FBFBFA !important;
+  }
+
+  html.dark .text-content-secondary {
+    color: #A1A1AA !important;
+  }
+
+  html.dark .text-content-muted {
+    color: #71717A !important;
+  }
+
+  /* Dark mode Primary Action buttons */
+  html.dark .bg-content-primary {
+    background-color: #FBFBFA !important;
+    color: #09090C !important;
+  }
+
+  html.dark .bg-content-primary:hover {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Tag badges in Dark Mode */
+  html.dark .px-3.py-1.font-mono,
+  html.dark .px-2\.5.py-1.font-mono {
+    background-color: #161620 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #E4E4E7 !important;
+  }
+
+  /* Trust Strip & Feature Slabs in Dark Mode */
+  html.dark .trust-strip {
+    background-color: #0B0B10 !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+  }
+
+  html.dark .trust-item {
+    color: #F4F4F5 !important;
+  }
+
+  /* Radial glow mesh background for Dark Mode Hero */
+  html.dark .absolute.inset-0.bg-\[radial-gradient\(\#e5e7eb_1px\,transparent_1px\)\] {
+    opacity: 0.12 !important;
+    background-image: radial-gradient(#383844 1px, transparent 1px) !important;
+  }
 </style>
+

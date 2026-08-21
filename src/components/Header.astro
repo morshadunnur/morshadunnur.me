@@ -1,84 +1,87 @@
 ---
-// Main navigation header with responsive design
+// Minimal editorial founder header
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-30 w-full transition-all duration-300" id="main-header">
+<header class="absolute top-0 left-0 right-0 z-40 w-full transition-all duration-300 border-b border-border-subtle/70 dark:border-white/[0.08] bg-surface-ground/80 dark:bg-[#09090C]/80 backdrop-blur-xl shadow-sm dark:shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]" id="main-header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo / Wordmark: Morshadun Nur (Focus on Nur) -->
       <div class="flex items-center">
-        <a href="/" class="flex-shrink-0 flex items-center">
-          <span class="text-3xl font-heading font-bold text-primary">Morshadun Nur</span>
+        <a href="/" class="group flex items-center py-1">
+          <span class="text-lg sm:text-xl font-display font-medium tracking-tight text-content-primary dark:text-white">
+            Morshadun <span class="font-extrabold text-content-primary dark:text-white underline decoration-brand-amber decoration-[2.5px] underline-offset-[5px] group-hover:text-brand-amber transition-colors">Nur</span>
+          </span>
         </a>
       </div>
       
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:ml-6 md:flex md:space-x-8">
-        <a href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
-          Home
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#work" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
+          Work
         </a>
-        <a href="/about" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+        <a href="#products" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
+          Products
+        </a>
+        <a href="#about" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
           About
         </a>
-        <a href="/services" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
-          Services
+        <a href="#expertise" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
+          Expertise
         </a>
-        <a href="/projects" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
-          Projects
+        <a href="#writing" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
+          Writing
         </a>
-        <a href="/blog" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
-          Blog
-        </a>
-        <a href="/contact" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+        <a href="#contact" class="text-sm font-medium text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white transition-colors">
           Contact
         </a>
       </nav>
       
-      <!-- Mobile menu button -->
-      <div class="flex items-center md:hidden">
-        <button id="open-mobile-nav" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
-          <span class="sr-only">Open main menu</span>
-          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <!-- Right CTA & Theme Toggle -->
+      <div class="hidden md:flex items-center space-x-4">
+        <ThemeToggle />
+        <a 
+          href="#contact" 
+          class="inline-flex items-center px-4 py-2.5 rounded text-xs sm:text-sm font-semibold text-white bg-content-primary hover:bg-black dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 transition-all shadow-sm hover:shadow active:scale-[0.99]"
+        >
+          <span>Let's Work Together</span>
+          <span class="ml-1.5 transition-transform group-hover:translate-x-0.5">→</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button & Mobile Theme Toggle -->
+      <div class="flex items-center space-x-2 md:hidden">
+        <ThemeToggle />
+        <button 
+          id="open-mobile-nav" 
+          class="inline-flex items-center justify-center p-2 rounded text-content-primary dark:text-zinc-300 hover:bg-surface-muted dark:hover:bg-zinc-800 focus:outline-none"
+          aria-label="Open Navigation Menu"
+        >
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         </button>
       </div>
+      
     </div>
   </div>
 </header>
 
-<!-- Spacer to prevent content from being hidden under the fixed header -->
-<div class="h-16"></div>
+<!-- Spacer to prevent hero overlap -->
+<div class="h-20"></div>
 
 <script>
-  // Add scroll event listener to handle sticky header behavior
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('main-header');
-    let lastScrollTop = 0;
     
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      
-      // Add shadow and background when scrolling down
-      if (scrollTop > 10) {
-        header.classList.add('shadow-md');
-        header.classList.add('bg-white/95');
-        header.classList.add('backdrop-blur-sm');
+      if (scrollTop > 20) {
+        header?.classList.add('shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]', 'bg-surface-ground/95');
       } else {
-        header.classList.remove('shadow-md');
-        header.classList.remove('bg-white/95');
-        header.classList.remove('backdrop-blur-sm');
+        header?.classList.remove('shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]', 'bg-surface-ground/95');
       }
-      
-      // Hide header when scrolling down, show when scrolling up
-      if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down
-        header.style.transform = 'translateY(-100%)';
-      } else {
-        // Scrolling up
-        header.style.transform = 'translateY(0)';
-      }
-      
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scrollTop
     });
   });
 </script>

@@ -1,0 +1,219 @@
+---
+// GSAP & ScrollTrigger Interactive Animations Component
+---
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script is:inline>
+  (() => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    function initAnimations() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        // Fallback: make sure all animated elements are completely visible if GSAP fails to load
+        document.querySelectorAll('.gsap-product-card, .gsap-service-card, .gsap-blog-card, .gsap-project-card, .gsap-step-card, .gsap-section-header').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. HERO ENTRANCE (Immediate Timeline)
+      const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      const heroElements = [
+        { sel: '.hero-eyebrow', y: 15, duration: 0.5 },
+        { sel: '.hero-title', y: 25, duration: 0.7 },
+        { sel: '.hero-copy', y: 20, duration: 0.6 },
+        { sel: '.hero-ctas', y: 15, duration: 0.5 },
+        { sel: '.hero-creds', y: 10, duration: 0.5 },
+        { sel: '.hero-video-card', y: 30, duration: 0.8, scale: 0.97 }
+      ];
+
+      heroElements.forEach(({ sel, y, duration, scale }) => {
+        const el = document.querySelector(sel);
+        if (el) {
+          heroTl.fromTo(el, 
+            { y: y || 0, opacity: 0, scale: scale || 1 },
+            { y: 0, opacity: 1, scale: 1, duration: duration, ease: 'power3.out' },
+            '-=0.35'
+          );
+        }
+      });
+
+      // 2. TRUST STRIP
+      const trustItems = document.querySelectorAll('.trust-item');
+      if (trustItems.length > 0) {
+        gsap.fromTo(trustItems,
+          { y: 15, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.08,
+            duration: 0.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: '.trust-strip',
+              start: 'top 92%',
+              once: true
+            }
+          }
+        );
+      }
+
+      // 3. SECTION HEADERS REVEAL
+      gsap.utils.toArray('.gsap-section-header').forEach((header) => {
+        gsap.fromTo(header,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: header,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 4. SELECTED WORK PROJECT CARDS
+      gsap.utils.toArray('.gsap-project-card').forEach((card) => {
+        gsap.fromTo(card,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 5. PRODUCTS I'VE BUILT CARDS (Individual triggers with stagger fallback)
+      gsap.utils.toArray('.gsap-product-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            delay: (i % 3) * 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 6. SERVICES & EXPERTISE CARDS
+      gsap.utils.toArray('.gsap-service-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            delay: (i % 4) * 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 7. QBYTESOFT & STORESFORGE FEATURE SLABS
+      ['#qbytesoft', '#storesforge'].forEach((selector) => {
+        const el = document.querySelector(selector);
+        if (el) {
+          gsap.fromTo(el.querySelectorAll('.grid > div'),
+            { y: 35, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.15,
+              duration: 0.75,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                once: true
+              }
+            }
+          );
+        }
+      });
+
+      // 8. 4-STEP APPROACH METHODOLOGY
+      gsap.utils.toArray('.gsap-step-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            delay: i * 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 9. BLOG / WRITING INSIGHTS CARDS
+      gsap.utils.toArray('.gsap-blog-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            delay: (i % 3) * 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // 10. REFRESH ON RESIZE AND LOAD
+      ScrollTrigger.refresh();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnimations);
+    } else {
+      initAnimations();
+    }
+
+    window.addEventListener('load', () => {
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
+  })();
+</script>

@@ -1,0 +1,120 @@
+---
+// Floating Bottom Glass Dock Navigation (3D Shadow Boxed Apple/Designmonks style)
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<div 
+  id="floating-bottom-dock" 
+  class="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out opacity-0 translate-y-12 pointer-events-none max-w-[96vw]"
+  aria-label="Floating quick navigation"
+>
+  <nav class="dock-3d-box flex items-center gap-1.5 sm:gap-2.5 p-2 sm:p-2.5 px-3 sm:px-4 rounded-full bg-white/90 dark:bg-[#0D0D14]/90 backdrop-blur-2xl border border-black/[0.08] dark:border-white/[0.14] transition-all">
+    
+    <!-- Left Navigation Links -->
+    <div class="flex items-center gap-1 sm:gap-1.5 text-sm sm:text-[15px] font-display font-semibold text-content-secondary dark:text-zinc-300">
+      <a 
+        href="#work" 
+        class="px-3 sm:px-4 py-2 sm:py-2.5 rounded-full hover:text-content-primary dark:hover:text-white hover:bg-black/[0.06] dark:hover:bg-white/10 transition-all active:scale-95"
+      >
+        Work
+      </a>
+      <a 
+        href="#products" 
+        class="px-3 sm:px-4 py-2 sm:py-2.5 rounded-full hover:text-content-primary dark:hover:text-white hover:bg-black/[0.06] dark:hover:bg-white/10 transition-all active:scale-95"
+      >
+        Products
+      </a>
+      <a 
+        href="#about" 
+        class="hidden sm:inline-block px-3 sm:px-4 py-2 sm:py-2.5 rounded-full hover:text-content-primary dark:hover:text-white hover:bg-black/[0.06] dark:hover:bg-white/10 transition-all active:scale-95"
+      >
+        About
+      </a>
+    </div>
+
+    <!-- Center 3D Action Pill: Start a Project (Linked to Upwork Profile) -->
+    <a 
+      href="https://www.upwork.com/freelancers/morshadunnur" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="group relative inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-sm sm:text-[15px] font-display font-bold text-white bg-gradient-to-r from-brand-amber via-[#EA580C] to-brand-amber hover:from-[#EA580C] hover:to-brand-amber shadow-[0_4px_16px_rgba(217,119,6,0.4),inset_0_1px_0_rgba(255,255,255,0.35)] hover:shadow-[0_6px_22px_rgba(217,119,6,0.55),inset_0_1px_0_rgba(255,255,255,0.45)] active:scale-95 transition-all"
+    >
+      <span>Start a Project</span>
+      <span class="text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+    </a>
+
+    <!-- Right Navigation Links & Theme Toggle -->
+    <div class="flex items-center gap-1 sm:gap-1.5 text-sm sm:text-[15px] font-display font-semibold text-content-secondary dark:text-zinc-300">
+      <a 
+        href="#expertise" 
+        class="hidden md:inline-block px-3 sm:px-4 py-2 sm:py-2.5 rounded-full hover:text-content-primary dark:hover:text-white hover:bg-black/[0.06] dark:hover:bg-white/10 transition-all active:scale-95"
+      >
+        Services
+      </a>
+      <a 
+        href="#writing" 
+        class="hidden lg:inline-block px-3 sm:px-4 py-2 sm:py-2.5 rounded-full hover:text-content-primary dark:hover:text-white hover:bg-black/[0.06] dark:hover:bg-white/10 transition-all active:scale-95"
+      >
+        Insights
+      </a>
+      <div class="pl-1">
+        <ThemeToggle />
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+<style>
+  /* 3D Tactile Shadow Box Depth Effect */
+  .dock-3d-box {
+    box-shadow: 
+      0 22px 50px -10px rgba(0, 0, 0, 0.18),
+      0 10px 20px -5px rgba(0, 0, 0, 0.08),
+      inset 0 1.5px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  :global(html.dark) .dock-3d-box {
+    box-shadow: 
+      0 30px 70px -12px rgba(0, 0, 0, 0.95),
+      0 12px 30px -6px rgba(0, 0, 0, 0.8),
+      inset 0 1.5px 0 0 rgba(255, 255, 255, 0.16),
+      inset 0 -2px 4px 0 rgba(0, 0, 0, 0.6),
+      0 0 25px rgba(217, 119, 6, 0.08);
+  }
+</style>
+
+<script is:inline>
+  function initFloatingDock() {
+    const dock = document.getElementById('floating-bottom-dock');
+    if (!dock) return;
+
+    let isVisible = false;
+
+    function onScroll() {
+      const currentScrollY = window.scrollY;
+      const threshold = 350; // Show after scrolling past hero
+
+      if (currentScrollY > threshold) {
+        if (!isVisible) {
+          dock.classList.remove('opacity-0', 'translate-y-12', 'pointer-events-none');
+          dock.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          isVisible = true;
+        }
+      } else {
+        if (isVisible) {
+          dock.classList.add('opacity-0', 'translate-y-12', 'pointer-events-none');
+          dock.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          isVisible = false;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // initial check
+  }
+
+  initFloatingDock();
+  document.addEventListener('astro:after-swap', initFloatingDock);
+</script>

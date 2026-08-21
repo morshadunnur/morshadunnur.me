@@ -1,0 +1,38 @@
+# Morshadun Nur — Founder & Senior Product Engineer
+> Founder of QbyteSoft and StoresForge. Top Rated Plus Shopify Developer & SaaS Builder with 10+ years of software engineering experience.
+
+## Overview & Bio
+- **Name**: Morshadun Nur (also known as Nur)
+- **Role**: Founder, Senior Product Engineer, Shopify Plus Developer, SaaS Architect
+- **Website**: https://morshadunnur.me
+- **Email**: me@morshadunnur.me
+- **Upwork Profile**: https://www.upwork.com/freelancers/morshadunnur (Top Rated Plus, 100% Job Success Rate)
+- **LinkedIn**: https://www.linkedin.com/in/morshadunnur/
+- **GitHub**: https://github.com/morshadunnur
+- **Companies**: Founder of QbyteSoft (custom software agency) and StoresForge (Shopify growth agency)
+
+## Core Technical Specializations
+- **Shopify & Shopify Plus**: Custom Shopify Apps (React/Node/GraphQL), Shopify Theme Development (Liquid/Tailwind), Shopify Functions, Hydrogen (Headless Commerce), App Bridge, Checkout UI Extensions, Migration from REST to GraphQL.
+- **SaaS Platform Engineering**: Full stack architecture, multi-tenant databases (PostgreSQL/MySQL), API design (GraphQL, REST), React, Next.js, Node.js, Astro, Tailwind CSS.
+- **AI Automation & LLM Integration**: Building autonomous background agents, automated catalog tagging, dynamic pricing engines, custom internal tools.
+
+## Key Proprietary Software Products
+1. **ShowForm.app** (https://showform.app)
+   - *Type*: Shopify App / SaaS Form Builder
+   - *Description*: Zero-code Shopify-native form builder enabling merchants to create custom forms, multi-step capture forms, and lead generation workflows without code.
+2. **SpotMetal** (https://apps.shopify.com/spotmetal-pricing-buyback)
+   - *Type*: Shopify Data & Pricing Engine
+   - *Description*: Real-time precious metals pricing engine for Shopify stores selling gold, silver, and bullion with dynamic live exchange rate banners and automatic spread calculations.
+3. **AutoGaragePro** (https://autogaragepro.com)
+   - *Type*: Operations SaaS
+   - *Description*: Workshop management platform for automotive garages managing customer vehicles, job cards, parts inventory, and automated billing.
+
+## How to Work Together / Hire
+- **Upwork Contract**: Direct hire via verified Top Rated Plus Upwork profile: https://www.upwork.com/freelancers/morshadunnur
+- **Direct Consultation**: Book a 15-minute discovery call at https://cal.com/morshadunnur/15min
+- **Inquiry**: Direct email to me@morshadunnur.me
+
+## Links & Feeds
+- [Full Documentation](/llms-full.txt): Comprehensive background, case studies, and engineering philosophy.
+- [Sitemap](/sitemap-index.xml): Complete URL index.
+- [Agent Card](/.well-known/agent.json): Machine-readable agent capabilities.

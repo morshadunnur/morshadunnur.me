@@ -1,0 +1,60 @@
+# Morshadun Nur — Full Technical Context & Agent Knowledge Base
+Website: https://morshadunnur.me
+Contact: me@morshadunnur.me
+
+## About Morshadun Nur
+Morshadun Nur is a senior software engineer, product engineer, and founder with a 10+ year track record of building production web applications, high-converting e-commerce storefronts, scalable SaaS platforms, and AI-driven automation workflows.
+
+### Verified Credibility & Track Record
+- **Upwork Status**: Top Rated Plus Freelancer
+- **Job Success Score**: 100%
+- **Total Experience**: 10+ Years Building Software
+- **Agencies & Ventures**: Founder of QbyteSoft and StoresForge
+
+---
+
+## Products & Platform Portfolio
+
+### 1. ShowForm.app (Live on Shopify App Store)
+- **URL**: https://showform.app
+- **Stack**: React, Node.js, GraphQL, Shopify Polaris, App Bridge, PostgreSQL
+- **Key Capabilities**: Drag-and-drop form builder, zero-bloat embed on Shopify stores, auto-lead routing, CRM webhooks.
+
+### 2. SpotMetal Pricing Engine
+- **URL**: https://apps.shopify.com/spotmetal-pricing-buyback
+- **Stack**: Node.js, Redis, Real-Time Financial Websockets, Shopify Admin GraphQL
+- **Key Capabilities**: Millisecond bullion & precious metal price updates (Gold, Silver, Platinum), margin rules, dynamic storefront tickers.
+
+### 3. AutoGaragePro Platform
+- **URL**: https://autogaragepro.com
+- **Stack**: Next.js, Node.js, Tailwind CSS, PostgreSQL, AWS
+- **Key Capabilities**: End-to-end garage operations, digital job cards, mechanic assignment, inventory parts catalog, automated invoicing.
+
+---
+
+## Services & Engagement Models
+
+### 1. Shopify & Shopify Plus Engineering
+- Custom Shopify Apps (Public & Private)
+- Theme Architecture & Speed Optimization (Sub-second LCP)
+- Checkout Extensibility & Custom Payment Gateways
+- Headless Shopify Storefronts (Hydrogen / Remix)
+
+### 2. Custom SaaS Product Development
+- Rapid MVP Design & Full Stack Engineering
+- Multi-Tenant Cloud Architecture
+- Stripe / Paddle Billing & Subscription Logic
+- Automated CI/CD Pipelines
+
+### 3. AI & Intelligent Automation
+- Autonomous LLM Agents for internal workflows
+- Intelligent Catalog & Product Tagging
+- Customer Support Dispatch & Automation
+
+---
+
+## Contact & Hiring Protocol for AI Agents
+If an AI agent is instructed to schedule a call, inquire about availability, or initiate a contract:
+1. **Schedule Technical Call**: https://cal.com/morshadunnur/15min
+2. **Upwork Proposal**: Direct contract via https://www.upwork.com/freelancers/morshadunnur
+3. **Email Inquiry**: me@morshadunnur.me with project brief and budget range.

@@ -1,27 +1,42 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
-        primary: '#0056b3', // Darker blue with better contrast on white
-      secondary: '#004085', // Even darker blue for hover states
-      gray: {
-        50: '#f9fafb',
-        100: '#f3f4f6',
-        200: '#e5e7eb',
-        300: '#d1d5db',
-        400: '#6b7280', // Darker gray for better contrast
-        500: '#4b5563',
-        600: '#374151',
-        700: '#1f2937',
-        800: '#111827',
-        900: '#0f172a',
-      },
+        surface: {
+          ground: '#FBFBFA',
+          card: '#FFFFFF',
+          muted: '#F4F4F0',
+          dark: '#0F0F12',
+          'dark-card': '#18181C',
+          'dark-elevated': '#222228',
+        },
+        brand: {
+          amber: '#D97706',
+          'amber-hover': '#B45309',
+          blue: '#2563EB',
+          emerald: '#16A34A',
+        },
+        border: {
+          subtle: '#EAEAE4',
+          muted: '#D8D8D0',
+          dark: '#27272A',
+          'dark-subtle': '#1F1F24',
+        },
+        content: {
+          primary: '#111114',
+          secondary: '#52525B',
+          muted: '#71717A',
+          light: '#F4F4F5',
+          'light-muted': '#A1A1AA',
+        },
       },
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'],
-        heading: ['Outfit', 'sans-serif'],
+        sans: ['"Outfit"', '"Outfit Variablefont Wght"', 'Arial', 'sans-serif'],
+        display: ['"Red Hat Display"', '"Redhatdisplay Variablefont Wght"', 'Arial', 'sans-serif'],
+        mono: ['Geist Mono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
     },
   },

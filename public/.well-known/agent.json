@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Morshadun Nur Agent Profile",
+  "description": "Agent-to-Agent discovery manifest and capability catalog for Morshadun Nur — Senior Product Engineer, Shopify Plus Specialist, and SaaS Founder.",
+  "url": "https://morshadunnur.me",
+  "version": "1.0.0",
+  "author": {
+    "name": "Morshadun Nur",
+    "email": "me@morshadunnur.me",
+    "url": "https://morshadunnur.me",
+    "sameAs": [
+      "https://www.upwork.com/freelancers/morshadunnur",
+      "https://github.com/morshadunnur",
+      "https://www.linkedin.com/in/morshadunnur/"
+    ]
+  },
+  "capabilities": {
+    "llmsTxt": "https://morshadunnur.me/llms.txt",
+    "llmsFull": "https://morshadunnur.me/llms-full.txt",
+    "sitemap": "https://morshadunnur.me/sitemap-index.xml",
+    "services": [
+      "Shopify App Development",
+      "Shopify Plus Engineering",
+      "SaaS Architecture & Full Stack Development",
+      "AI Automation & LLM Workflows"
+    ]
+  },
+  "endpoints": {
+    "booking": "https://cal.com/morshadunnur/15min",
+    "upworkHire": "https://www.upwork.com/freelancers/morshadunnur",
+    "inquiryEmail": "mailto:me@morshadunnur.me"
+  }
+}
