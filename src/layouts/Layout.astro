@@ -14,7 +14,7 @@ export interface Props {
 const {
   title = "Morshadun Nur — Founder, Product Engineer, Shopify & AI Builder",
   description = "Building Shopify, SaaS & AI products that help businesses scale. Founder of QbyteSoft & StoresForge. Creator of ShowForm.app.",
-  image = "/images/og-image.jpg"
+  image = "/images/profile.png"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://morshadunnur.me');
@@ -186,6 +186,9 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImageURL} />
+    <meta property="og:image:secure_url" content={absoluteImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Morshadun Nur — Founder & Senior Product Engineer" />
     <meta property="og:site_name" content="Morshadun Nur" />
     
     <!-- Twitter -->
@@ -194,6 +197,7 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImageURL} />
+    <meta name="twitter:image:alt" content="Morshadun Nur — Founder & Senior Product Engineer" />
     <meta name="twitter:creator" content="@morshadunnur" />
     
     <!-- JSON-LD Structured Data -->
