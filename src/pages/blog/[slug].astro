@@ -1,22 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 
 // Generate paths for all blog posts
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   // Filter out the entry that is handled by a static page
-  const filteredEntries = blogEntries.filter(entry => entry.slug !== 'shopify-horizon-theme-dropdown-menu');
+  const filteredEntries = blogEntries.filter(entry => (entry.id || entry.slug) !== 'shopify-horizon-theme-dropdown-menu');
   
   return filteredEntries.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id || entry.slug },
     props: { entry },
   }));
 }
 
 // Get the blog post for this page
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <BlogLayout
