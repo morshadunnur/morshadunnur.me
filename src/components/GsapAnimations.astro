@@ -84,22 +84,25 @@
         );
       });
 
-      // 4. SELECTED WORK PROJECT CARDS
-      gsap.utils.toArray('.gsap-project-card').forEach((card) => {
-        gsap.fromTo(card,
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.75,
-            ease: 'power3.out',
+      // 4. SELECTED WORK PROJECT CARDS (Designmonks Stacking Deck Effect)
+      const projectCards = gsap.utils.toArray('.gsap-project-card');
+      projectCards.forEach((card, index) => {
+        // Stacking scale & depth effect as subsequent cards scroll in
+        if (index < projectCards.length - 1) {
+          const nextCard = projectCards[index + 1];
+          gsap.to(card, {
+            scale: 0.96,
+            filter: 'brightness(0.92)',
+            transformOrigin: 'top center',
+            ease: 'none',
             scrollTrigger: {
-              trigger: card,
-              start: 'top 88%',
-              once: true
+              trigger: nextCard,
+              start: 'top 70%',
+              end: 'top 25%',
+              scrub: true
             }
-          }
-        );
+          });
+        }
       });
 
       // 5. PRODUCTS I'VE BUILT CARDS (Individual triggers with stagger fallback)

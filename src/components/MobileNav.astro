@@ -1,93 +1,192 @@
 ---
-// Mobile navigation drawer component
+// Redesigned Modern Mobile Navigation (Bottom Sheet Slide-up with Floating Bottom-Left Trigger)
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<div id="mobile-nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity duration-300"></div>
+<!-- Floating Circular Bottom-Left Hamburger Menu Trigger (Appears on scroll on mobile) -->
+<button 
+  id="floating-mobile-menu-btn" 
+  class="md:hidden fixed bottom-6 left-6 z-40 w-13 h-13 rounded-full bg-[#111117]/95 dark:bg-[#181822]/95 text-white backdrop-blur-2xl border border-white/20 dark:border-white/15 shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center justify-center transition-all duration-400 transform opacity-0 translate-y-10 pointer-events-none active:scale-90 cursor-pointer"
+  aria-label="Open Navigation Menu"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+</button>
 
-<div id="mobile-nav" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-surface-ground dark:bg-[#0E0E14] z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl border-l border-border-subtle dark:border-zinc-800 flex flex-col justify-between p-6">
-  <div>
-    <!-- Top Header -->
-    <div class="flex items-center justify-between pb-6 border-b border-border-subtle dark:border-zinc-800">
-      <span class="text-base font-display font-medium text-content-primary dark:text-white">
-        Morshadun <span class="font-extrabold underline decoration-brand-amber decoration-[2px] underline-offset-4">Nur</span>
+<!-- Backdrop Blur Overlay -->
+<div 
+  id="mobile-nav-overlay" 
+  class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300 ease-out"
+></div>
+
+<!-- Bottom Slide-up Mobile Navigation Drawer -->
+<div 
+  id="mobile-nav" 
+  class="fixed inset-x-0 bottom-0 z-50 max-h-[92vh] w-full bg-white dark:bg-[#09090C] rounded-t-3xl border-t border-black/10 dark:border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] transform translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between overflow-y-auto"
+>
+  <!-- Drawer Header -->
+  <div class="px-7 pt-6 pb-4 flex items-center justify-between border-b border-black/[0.06] dark:border-white/[0.08]">
+    <div class="flex items-center gap-3">
+      <span class="text-xl font-display font-medium tracking-tight text-content-primary dark:text-white">
+        Morshadun <span class="font-extrabold underline decoration-brand-amber decoration-[2.5px] underline-offset-4">Nur</span>
       </span>
-      <button id="close-mobile-nav" class="p-2 rounded text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white focus:outline-none" aria-label="Close menu">
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <ThemeToggle />
+      <button 
+        id="close-mobile-nav" 
+        class="w-10 h-10 rounded-full flex items-center justify-center text-content-secondary dark:text-zinc-400 hover:text-content-primary dark:hover:text-white bg-surface-muted dark:bg-zinc-800/80 active:scale-90 transition-all focus:outline-none" 
+        aria-label="Close menu"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
-    
-    <!-- Nav Links -->
-    <nav class="py-6">
-      <ul class="space-y-4">
-        <li>
-          <a href="#work" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">Selected Work</a>
-        </li>
-        <li>
-          <a href="#products" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">Products I've Built</a>
-        </li>
-        <li>
-          <a href="#about" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">About Morshadun Nur</a>
-        </li>
-        <li>
-          <a href="#expertise" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">What I Build</a>
-        </li>
-        <li>
-          <a href="#qbytesoft" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">QbyteSoft</a>
-        </li>
-        <li>
-          <a href="#storesforge" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">StoresForge</a>
-        </li>
-        <li>
-          <a href="#writing" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">Writing & Insights</a>
-        </li>
-        <li>
-          <a href="#contact" class="mobile-nav-link block text-lg font-medium text-content-primary dark:text-zinc-300 hover:text-brand-amber dark:hover:text-brand-amber transition-colors">Contact</a>
-        </li>
-      </ul>
-    </nav>
   </div>
   
-  <!-- Drawer Footer / CTA -->
-  <div class="pt-6 border-t border-border-subtle dark:border-zinc-800 space-y-4">
+  <!-- Big Editorial Links (Matching Reference UI) -->
+  <nav class="px-7 py-8 flex-1 flex flex-col justify-center">
+    <ul class="space-y-5 sm:space-y-6">
+      <li>
+        <a 
+          href="#work" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>Work</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#products" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>Products</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#about" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>About</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#expertise" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>Expertise</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#writing" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>Writings</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+      <li>
+        <a 
+          href="#contact" 
+          class="mobile-nav-link group flex items-center justify-between text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-content-primary dark:text-white hover:text-brand-amber dark:hover:text-brand-amber transition-colors"
+        >
+          <span>Contact</span>
+          <span class="text-lg font-mono text-content-muted group-hover:text-brand-amber transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Bottom Actions & Direct Upwork Link -->
+  <div class="px-7 pb-8 pt-4 border-t border-black/[0.06] dark:border-white/[0.08] space-y-4">
     <a 
-      href="#contact" 
-      class="mobile-nav-link block w-full py-3 px-4 text-center rounded bg-content-primary hover:bg-black dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-sm transition-all"
+      href="https://www.upwork.com/freelancers/morshadunnur" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="mobile-nav-link block w-full py-4 px-6 text-center rounded-xl font-display text-base font-bold text-white bg-gradient-to-r from-brand-amber to-[#EA580C] hover:from-[#EA580C] hover:to-brand-amber shadow-lg active:scale-[0.98] transition-all"
     >
-      Start a Conversation →
+      Start a Project (Upwork) ↗
     </a>
-    <div class="flex items-center justify-center space-x-6 text-xs text-content-muted">
-      <a href="https://github.com/morshadunnur" target="_blank" rel="noopener noreferrer" class="hover:text-content-primary transition-colors">GitHub ↗</a>
-      <a href="https://linkedin.com/in/morshadunnur" target="_blank" rel="noopener noreferrer" class="hover:text-content-primary transition-colors">LinkedIn ↗</a>
-      <a href="mailto:me@morshadunnur.me" class="hover:text-content-primary transition-colors">Email ↗</a>
+    
+    <div class="flex items-center justify-between pt-2 text-xs font-mono text-content-muted dark:text-zinc-500">
+      <a href="https://github.com/morshadunnur" target="_blank" rel="noopener noreferrer" class="hover:text-brand-amber transition-colors">GitHub ↗</a>
+      <a href="https://linkedin.com/in/morshadunnur" target="_blank" rel="noopener noreferrer" class="hover:text-brand-amber transition-colors">LinkedIn ↗</a>
+      <a href="mailto:me@morshadunnur.me" class="hover:text-brand-amber transition-colors">me@morshadunnur.me</a>
     </div>
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+<script is:inline>
+  function initMobileNav() {
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
     const openMobileNavBtn = document.getElementById('open-mobile-nav');
+    const floatingMobileBtn = document.getElementById('floating-mobile-menu-btn');
     const closeMobileNavBtn = document.getElementById('close-mobile-nav');
     const navLinks = document.querySelectorAll('.mobile-nav-link');
     
+    let isOpen = false;
+
     function openMobileNav() {
-      mobileNav?.classList.remove('translate-x-full');
-      mobileNavOverlay?.classList.remove('hidden');
+      if (!mobileNav || !mobileNavOverlay) return;
+      isOpen = true;
+      mobileNav.classList.remove('translate-y-full');
+      mobileNav.classList.add('translate-y-0');
+      mobileNavOverlay.classList.remove('pointer-events-none', 'opacity-0');
+      mobileNavOverlay.classList.add('opacity-100');
       document.body.classList.add('overflow-hidden');
     }
     
     function closeMobileNav() {
-      mobileNav?.classList.add('translate-x-full');
-      mobileNavOverlay?.classList.add('hidden');
+      if (!mobileNav || !mobileNavOverlay) return;
+      isOpen = false;
+      mobileNav.classList.add('translate-y-full');
+      mobileNav.classList.remove('translate-y-0');
+      mobileNavOverlay.classList.remove('opacity-100');
+      mobileNavOverlay.classList.add('opacity-0', 'pointer-events-none');
       document.body.classList.remove('overflow-hidden');
     }
     
     openMobileNavBtn?.addEventListener('click', openMobileNav);
+    floatingMobileBtn?.addEventListener('click', openMobileNav);
     closeMobileNavBtn?.addEventListener('click', closeMobileNav);
     mobileNavOverlay?.addEventListener('click', closeMobileNav);
-    navLinks.forEach(link => link.addEventListener('click', closeMobileNav));
-  });
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileNav();
+      });
+    });
+
+    // Handle Floating Bottom-Left Hamburger Button Visibility on Scroll
+    function onMobileScroll() {
+      if (window.innerWidth >= 768 || !floatingMobileBtn) return;
+      
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 180 && !isOpen) {
+        floatingMobileBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        floatingMobileBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      } else {
+        floatingMobileBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+        floatingMobileBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      }
+    }
+
+    window.addEventListener('scroll', onMobileScroll, { passive: true });
+    window.addEventListener('resize', onMobileScroll, { passive: true });
+    onMobileScroll();
+  }
+
+  initMobileNav();
+  document.addEventListener('astro:after-swap', initMobileNav);
 </script>

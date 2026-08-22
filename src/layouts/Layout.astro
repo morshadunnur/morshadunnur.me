@@ -243,14 +243,31 @@ const jsonLd = {
     <FloatingDock />
     <GsapAnimations />
 
-    <!-- Cal floating-popup embed code begins -->
+    <!-- Custom Responsive Floating Cal Booking Button (Full Circle on Mobile, Pill on Desktop) -->
+    <button 
+      id="custom-cal-floating-button"
+      data-cal-link="morshadunnur/15min" 
+      data-cal-namespace="15min"
+      data-cal-config='{"layout":"month_view"}'
+      class="fixed bottom-6 right-6 z-40 w-13 h-13 md:w-auto md:h-auto flex items-center justify-center gap-2.5 rounded-full bg-[#111117]/95 dark:bg-[#181822]/95 text-white md:px-5 md:py-3.5 backdrop-blur-xl border border-white/20 dark:border-white/15 shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.1)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
+      aria-label="Schedule a 15-minute Discovery Call"
+    >
+      <!-- Calendar Icon (Full Circle Icon on Mobile) -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      <!-- Label: Hidden on Mobile, Visible on Desktop -->
+      <span class="hidden md:inline-block text-sm font-display font-bold tracking-tight text-white pr-1">
+        Schedule a Call
+      </span>
+    </button>
+
+    <!-- Cal popup embed code -->
     <script type="text/javascript">
       (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
       Cal("init", "15min", {origin:"https://cal.com"});
-      Cal.ns["15min"]("floatingButton", {"calLink":"morshadunnur/15min","config":{"layout":"month_view","theme":"light"},"buttonText":"Schedule a Call","buttonColor":"#111114"}); 
-      Cal.ns["15min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#111114"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      Cal.ns["15min"]("ui", {"theme":"auto","cssVarsPerTheme":{"light":{"cal-brand":"#111114"},"dark":{"cal-brand":"#FFFFFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
     </script>
-    <!-- Cal floating-popup embed code ends -->
   </body>
 </html>
 
